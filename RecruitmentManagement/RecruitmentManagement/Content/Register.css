@@ -1,0 +1,135 @@
+﻿body {
+    font-family: "Arial", "Helvetica", "Tahoma", "Verdana", sans-serif;
+    background-image: url("https://img.freepik.com/free-vector/blue-curve-background_53876-113112.jpg");
+    background-color: #1c529f, #e0eafc;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    margin: 60px auto;
+    padding: 20px;
+    width: 500px;
+    background: linear-gradient(to bottom right, #257bf4,#e0eafc);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.headerfield {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.firstheading {
+    color: white;
+}
+
+.radiofield label {
+    color: white;
+}
+
+.inputfields {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.gender-options {
+    margin-top: 7px;
+}
+
+.inputfields input,
+.inputfields textarea,
+.inputfields select {
+    font-size: 16px;
+    padding: 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    outline: none;
+    color: white;
+}
+
+.inputfields select {
+    color: rgb(235, 232, 232);
+}
+
+.inputfields label {
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+}
+
+.inputfields input:focus ~ label,
+.inputfields input:not(:placeholder-shown) ~ label,
+.inputfields textarea:focus ~ label,
+.inputfields textarea:not(:placeholder-shown) ~ label,
+.inputfields select:focus ~ label,
+.inputfields select:not([value=""]) ~ label {
+    top: -20px;
+    font-size: 12px;
+    color: white;
+}
+
+.inputfields input:focus,
+.inputfields textarea:focus,
+.inputfields select:focus {
+    border-bottom: 2px solid white;
+}
+
+.gender-options {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.buttons {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.primarybutton, .secondarybutton {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+    .primarybutton:hover, .secondarybutton:hover {
+        background-color: #0056b3;
+    }
+
+    .primarybutton:active, .secondarybutton:active {
+        background-color: #004085;
+    }
+
+    .primarybutton:focus, .secondarybutton:focus {
+        outline: none;
+    }
+
+.footersection {
+    text-align: center;
+    margin-top: 30px;
+}
+
+    .footersection a {
+        color: rgb(56, 17, 140);
+        text-decoration: underline;
+    }
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}

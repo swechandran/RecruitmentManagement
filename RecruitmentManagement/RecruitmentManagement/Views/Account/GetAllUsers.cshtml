@@ -1,0 +1,13 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "GetAllUsers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetAllUsers</h2>
+<ul>
+    @foreach (string user in Model)
+    {
+        <li>@user</li>
+    }
+</ul>

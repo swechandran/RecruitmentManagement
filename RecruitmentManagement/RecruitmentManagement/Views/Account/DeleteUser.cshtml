@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "DeleteUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int userId = Convert.ToInt32(Request.QueryString["id"]);
+}
+
+<h2>DeleteUser</h2>
+<p>Are you sure you want to delete this user?</p>
+
+<!-- Display some basic information about the user for confirmation -->
+<table class="table table-bordered">
+    <tr>
+        <th>User ID</th>
+        <td>@userId</td>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <td>@ViewBag.FullName</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@ViewBag.EmailAddress</td>
+    </tr>
+    <!-- Add more fields as needed for context -->
+</table>
+
+<form method="post" action="/Account/DeleteConfirmed">
+    <!-- Hidden field to send user id -->
+    <input type="hidden" name="id" value="@userId" />
+
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="@Url.Action("GetAllUsers", "Account")" class="btn btn-secondary">Cancel</a>
+</form>
