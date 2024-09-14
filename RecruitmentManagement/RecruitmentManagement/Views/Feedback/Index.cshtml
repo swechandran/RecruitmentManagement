@@ -1,0 +1,40 @@
+﻿@model IEnumerable<RecruitmentManagement.Models.Feedback>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Feedback List</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Communication</th>
+            <th>Attitude</th>
+            <th>Technical Skills</th>
+            <th>Logical Skills</th>
+            <th>Overall</th>
+            <th>Interview Result</th>
+            <th>Remarks</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var feedback in Model)
+        {
+            <tr>
+                <td>@feedback.Communication</td>
+                <td>@feedback.Attitude</td>
+                <td>@feedback.TechnicalSkills</td>
+                <td>@feedback.LogicalSkills</td>
+                <td>@feedback.Overall</td>
+                <td>@feedback.InterviewResult</td>
+                <td>@feedback.Remarks</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p>
+    @Html.ActionLink("Create New Feedback", "Create", "Feedback", null, new { @class = "btn btn-primary" })
+</p>
+

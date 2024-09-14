@@ -1,0 +1,55 @@
+﻿@model RecruitmentManagement.Models.JobPosting
+
+@{
+    ViewBag.Title = "Job Posting Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <h4>Job Posting</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(model => model.JobTitle)</dt>
+        <dd>@Html.DisplayFor(model => model.JobTitle)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.JobLocation)</dt>
+        <dd>@Html.DisplayFor(model => model.JobLocation)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.Department)</dt>
+        <dd>@Html.DisplayFor(model => model.Department)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.PostedDate)</dt>
+        <dd>@Html.DisplayFor(model => model.PostedDate)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.NumberOfVacancy)</dt>
+        <dd>@Html.DisplayFor(model => model.NumberOfVacancy)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.InterviewMode)</dt>
+        <dd>@Html.DisplayFor(model => model.InterviewMode)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.LastDateToRegister)</dt>
+        <dd>@Html.DisplayFor(model => model.LastDateToRegister)</dd>
+
+        <dt>@Html.DisplayNameFor(model => model.JobPosterImage)</dt>
+        <dd>
+            @if (Model.JobPosterImage != null)
+            {
+                var String64 = Convert.ToBase64String(Model.JobPosterImage);
+                var src = String.Format("data:image/gif,{0}", String64);
+                <img src="@src" alt="Job Poster Image" style="max-width: 300px; max-height: 300px;" />
+            }
+            else
+            {
+                <p>No image available</p>
+            }
+        </dd>
+
+    </dl>
+
+    <div class="form-actions">
+        @Html.ActionLink("Back to List", "Index", "Job", new { @class = "btn btn-secondary" })
+        @Html.ActionLink("Edit", "Edit", new { id = Model.JobID }, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Delete", "Delete", new { id = Model.JobID }, new { @class = "btn btn-danger" })
+    </div>
+</div>

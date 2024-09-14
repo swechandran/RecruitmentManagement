@@ -1,0 +1,52 @@
+﻿@*@model RecruitmentManagement.Repository.CandidateApplication
+
+@{
+    Layout = null;
+}
+
+<h2>Candidate Application Details</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Application ID</th>
+        <td>@Model.ApplicationID</td>
+    </tr>
+    <tr>
+        <th>Job ID</th>
+        <td>@Model.JobID</td>
+    </tr>
+    <tr>
+        <th>Candidate Name</th>
+        <td>@Model.CandidateName</td>
+    </tr>
+    <tr>
+        <th>Email</th>
+        <td>@Model.Email</td>
+    </tr>
+    <tr>
+        <th>Phone Number</th>
+        <td>@Model.PhoneNumber</td>
+    </tr>
+    <tr>
+        <th>Applied Date</th>
+        <td>@Model.AppliedDate.ToString("d")</td> 
+    </tr>
+    <tr>
+        <th>Resume</th>
+        <td>
+            @if (Model.Resume != null)
+            {
+                <a href="@Url.Action("DownloadResume", "Candidate", new { id = Model.ApplicationID })">Download Resume</a>
+            }
+            else
+            {
+                <span>No Resume</span>
+            }
+        </td>
+    </tr>
+</table>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ApplicationID }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+</p>*@

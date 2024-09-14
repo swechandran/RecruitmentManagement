@@ -1,0 +1,132 @@
+﻿@model IEnumerable<RecruitmentManagement.Models.JobPosting>
+@{
+    ViewBag.Title = "View Jobs";
+    //Layout = "~/Views/Shared/UserLayout.cshtml";
+    Layout = "~/Views/Shared/EntryLayout.cshtml";
+}
+
+<head>
+    <style>
+        .job-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            width:100%;
+        }
+
+        .job-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .job-card-header {
+            align-items: center;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        .heading {
+            align-items: center;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .job-image {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            align-items: center;
+        }
+
+        .no-image {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .job-card-body {
+            padding: 16px;
+            flex-grow: 1;
+            
+        }
+
+            .job-card-body p {
+                margin: 4px 0;
+            }
+
+        .job-card-footer {
+            padding: 16px;
+            text-align: center;
+            
+        }
+
+        .apply-button {
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            
+        }
+
+            .apply-button:hover {
+                background-color: #218838;
+            }
+
+        .content-container{
+            display:flex;
+
+        }
+
+
+    </style>
+   
+</head>
+
+<div class="content-container">
+    @*<h2>View Jobs</h2>*@
+
+    <div class="job-cards-container">
+        @foreach (var item in Model)
+        {
+            <div class="job-card">
+                <div class="job-card-header" style="text-align:center">
+
+                    @if (item.JobPosterImage != null && item.JobPosterImage.Length > 0)
+                    {
+                        var imageBase64 = Convert.ToBase64String(item.JobPosterImage);
+                        <img src="@($"data:image/jpeg;base64,{imageBase64}")" class="job-image" alt="Job Poster Image" />
+                    }
+                    else
+                    {
+                        <span class="no-image">No Image</span>
+                    }
+                    
+                </div>
+                
+                <div class="job-card-body">
+                    <h3 class="heading">@Html.DisplayFor(modelItem => item.JobTitle)</h3>
+                    <p><strong>Description:</strong> @Html.DisplayFor(modelItem => item.JobDescription)</p>
+                    <p><strong>Location:</strong> @Html.DisplayFor(modelItem => item.JobLocation)</p>
+                    <p><strong>Department:</strong> @Html.DisplayFor(modelItem => item.Department)</p>
+                    <p><strong>Posted Date:</strong> @item.PostedDate.ToString("dd/MM/yyyy")</p>
+                    <p><strong>Vacancies:</strong> @Html.DisplayFor(modelItem => item.NumberOfVacancy)</p>
+                    <p><strong>Interview Mode:</strong> @Html.DisplayFor(modelItem => item.InterviewMode)</p>
+                    <p><strong>Last Date to Register:</strong> @item.LastDateToRegister.ToString("dd/MM/yyyy")</p>
+                </div>
+                <div class="job-card-footer">
+                    <a href="~/User/Create?id=@item.JobID" class="apply-button">Apply</a>
+                </div>
+            </div>
+        }
+    </div>
+
+    
+</div>

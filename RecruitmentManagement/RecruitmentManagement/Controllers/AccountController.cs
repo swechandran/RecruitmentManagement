@@ -1,4 +1,4 @@
-﻿using RecruitmentManagement.Models;
+﻿ using RecruitmentManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,29 +9,30 @@ using System.Web;
 using System.Web.Mvc;
 using RecruitmentManagement.Repository;
 using System.Data;
-
 namespace RecruitmentManagement.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly string connectionString = ("data source=DESKTOP-7U2R9CR\\SQLEXPRESS; database=Recrutimentmanagement; integrated security= SSPI;");
+        public ActionResult ViewJobs()
+        {
+            JobRepository jobRepository = new JobRepository();
+            var jobs = jobRepository.GetJobPostings();
+            return View(jobs);
+        }
         public ActionResult UserHomePage()
         {
             return View();
         }
-
-        // CREATE
         [HttpGet]
         public ActionResult Register()
         {
             return View();
         }
-
         [HttpPost]
-        public ActionResult Register(UserModel userModel)
+        public ActionResult Register(Registeration registeration)
         {
             AccountRepository accountRepository = new AccountRepository();
-            if (accountRepository.UserInsert(userModel))
+            if (accountRepository.UserInsert(registeration))
             {
                 return RedirectToAction("Login");
             }
@@ -40,9 +41,7 @@ namespace RecruitmentManagement.Controllers
                 ViewBag.Message = "Something Error,try again";
                 return View();
             }
-            
         }
-
         public ActionResult About()
         {
             return View();
@@ -50,148 +49,49 @@ namespace RecruitmentManagement.Controllers
         public ActionResult Contact() 
         {
             return View();
-        }
-
-        //// READ
-        //[HttpGet]
-        //public ActionResult GetAllUsers()
-        //{
-        //    List<string> users = new List<string>();
-
-        //    using (SqlConnection connection = new SqlConnection(connectionString))
-        //    {
-        //        connection.Open();
-
-        //        string query = "SELECT * FROM Users";
-
-        //        using (SqlCommand command = new SqlCommand(query, connection))
-        //        {
-        //            SqlDataReader reader = command.ExecuteReader();
-
-        //            while (reader.Read())
-        //            {
-        //                users.Add(reader["Username"].ToString());
-        //            }
-        //        }
-        //    }
-
-        //    return View("GetAllUsers", users);
-        //}
-
+        }      
         // UPDATE
         [HttpGet]
-        public ActionResult EditUser(UserModel usermodel)
+        public ActionResult EditUser(Registeration registeration)
         {
-            if (usermodel.UserID <= 0) // Check if id is valid
+            if (registeration.UserID <= 0) 
             {
-                return HttpNotFound(); // Handle invalid id
+                return HttpNotFound(); 
             }
-
-            UserModel user = null;
-          
-
-            try
+            AccountRepository accountRepository = new AccountRepository();
+            if (accountRepository.UserUpdate(registeration))
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string query = "SELECT * FROM Users WHERE UserID = @UserID";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@UserID", usermodel.UserID);
-
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                user = new UserModel
-                                {
-                                    UserID = (int)reader["UserID"],
-                                    FirstName = reader["FirstName"].ToString(),
-                                    LastName = reader["LastName"].ToString(),
-                                    DateOfBirth = (DateTime)reader["DateOfBirth"],
-                                    Gender = reader["Gender"].ToString(),
-                                    PhoneNumber = reader["PhoneNumber"].ToString(),
-                                    EmailAddress = reader["EmailAddress"].ToString(),
-                                    Address = reader["Address"].ToString(),
-                                    State = reader["State"].ToString(),
-                                    City = reader["City"].ToString(),
-                                    Username = reader["Username"].ToString(),
-                                    Password = reader["Password"].ToString()
-                                };
-                            }
-                        }
-                    }
-                }
-
-                if (user == null)
-                {
-                    return HttpNotFound(); // Use HttpNotFound if the user does not exist
-                }
-
-                return View(user);
+                return RedirectToAction("Login");
             }
-            catch (Exception ex)
+            else
             {
-                // Consider logging the error
-                return new HttpStatusCodeResult(HttpStatusCode.InternalServerError, "Error retrieving user data.");
+                ViewBag.Message = "Something Error,try again";
+                return View();
             }
-        }
+        }  
         [HttpPost]
-        public ActionResult UpdateUser(UserModel usermodel)
-        {
-            if (usermodel.UserID <= 0)
+        public ActionResult UpdateUser(Registeration registeration)
+        {  
+            if (registeration.UserID <= 0)
             {
                 return RedirectToAction("Error");
             }
-
-            try
+            AccountRepository accountRepository = new AccountRepository();
+            if (accountRepository.UserUpdate(registeration))
             {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string query = "UPDATE Users SET FirstName = @FirstName, LastName = @LastName, DateOfBirth = @DateOfBirth, Gender = @Gender, PhoneNumber = @PhoneNumber, EmailAddress = @EmailAddress, Address = @Address, State = @State, City = @City, Username = @Username, Password = @Password WHERE UserID = @UserID";
-
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@UserID", usermodel.UserID);
-                        command.Parameters.AddWithValue("@FirstName", usermodel.FirstName);
-                        command.Parameters.AddWithValue("@LastName", usermodel.LastName);
-                        command.Parameters.AddWithValue("@DateOfBirth", usermodel.DateOfBirth);
-                        command.Parameters.AddWithValue("@Gender", usermodel.Gender);
-                        command.Parameters.AddWithValue("@PhoneNumber", usermodel.PhoneNumber);
-                        command.Parameters.AddWithValue("@EmailAddress", usermodel.EmailAddress);
-                        command.Parameters.AddWithValue("@Address", usermodel.Address);
-                        command.Parameters.AddWithValue("@State", usermodel.State);
-                        command.Parameters.AddWithValue("@City", usermodel.City);
-                        command.Parameters.AddWithValue("@Username", usermodel.Username);
-                        command.Parameters.AddWithValue("@Password", usermodel.Password);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-                        if (rowsAffected == 0)
-                        {
-                            // Handle the case where no rows were updated
-                            return RedirectToAction("Error");
-                        }
-                    }
-                }
+                return View();
             }
-            catch (SqlException ex)
+            else
             {
-                // Consider logging the error
-                throw new Exception("Error updating user data: " + ex.Message);
-            }
-
+                return View();
+            }         
             return RedirectToAction("GetAllUsers");
         }
- 
         // DELETE
         [HttpGet]
-        public string DeleteUser(UserModel usermodel)
+        public string DeleteUser(Registeration registeration)
         {
+            string connectionString = ("data source=DESKTOP-7U2R9CR\\SQLEXPRESS; database=Recrutimentmanagement; integrated security= SSPI;");
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -201,7 +101,7 @@ namespace RecruitmentManagement.Controllers
                 using (SqlCommand command = new SqlCommand("SPD_User", connection))
                 {
                     command.CommandType=CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@UserId", usermodel.UserID);
+                    command.Parameters.AddWithValue("@UserId", registeration.UserID);
 
                     int delResult = (int)command.ExecuteNonQuery();
                     if(delResult > 0)
@@ -212,57 +112,47 @@ namespace RecruitmentManagement.Controllers
                     {
                         return "Some thing error";
                     }
-
-
                 }
             }
 
         }
-
         // LOGIN
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
-
         [HttpPost]
-        public ActionResult Login(UserModel usermodel)
+        public ActionResult Login(Registeration registeration)
         {
+            string connectionString = ("data source=DESKTOP-7U2R9CR\\SQLEXPRESS; database=Recrutimentmanagement; integrated security= SSPI;");
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
                 string query = "SELECT * FROM Users WHERE Username = @Username AND Password = @Password";
-
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Username", usermodel.Username);
-                    command.Parameters.AddWithValue("@Password", usermodel.Password);
-
+                    command.Parameters.AddWithValue("@Username", registeration.Username);
+                    command.Parameters.AddWithValue("@Password", registeration.Password);
                     SqlDataReader reader = command.ExecuteReader();
-
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
                             if ((string)reader["UserType"] == "Admin")
                             {
-                                return Redirect("Admin/Index");
+                                return Redirect("~/Admin/Index");
                             }
                             else
                             {
-                                return RedirectToAction("UserHomePage");
+                                return Redirect("~/Account/ViewJobs");
 
                             }
-
                         }
-                        return View();
-                        
+                        return View();        
                     }
                     else
                     {
-                        // Login failed, display error message
                         ViewBag.ErrorMessage = "Invalid username or password";
                         return View();
                     }
@@ -272,4 +162,29 @@ namespace RecruitmentManagement.Controllers
     }
 }
 
-           
+// READ
+//[HttpGet]
+//public ActionResult GetAllUsers()
+//{
+//    List<string> users = new List<string>();
+
+//    using (SqlConnection connection = new SqlConnection(connectionString))
+//    {
+//        connection.Open();
+
+//        string query = "SELECT * FROM Users";
+
+//        using (SqlCommand command = new SqlCommand(query, connection))
+//        {
+//            SqlDataReader reader = command.ExecuteReader();
+
+//            while (reader.Read())
+//            {
+//                users.Add(reader["Username"].ToString());
+//            }
+//        }
+//    }
+
+//    return View("GetAllUsers", users);
+//}
+

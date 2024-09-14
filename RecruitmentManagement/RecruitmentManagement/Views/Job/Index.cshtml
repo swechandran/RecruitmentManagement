@@ -1,0 +1,122 @@
+﻿
+@model IEnumerable<RecruitmentManagement.Models.JobPosting>
+@{
+    ViewBag.Title = "Job Postings";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Job Postings</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "Job")
+</p>
+<style>
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 16px;
+        color: #333;
+    }
+
+        .table th, .table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .table thead {
+            background-color: #f2f2f2;
+        }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: #f9f9f9;
+    }
+
+    .table-bordered {
+        border: 1px solid #ddd;
+    }
+
+    .table th {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .btn {
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+    }
+
+    .btn-info {
+        background-color: #17a2b8;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+    }
+
+</style>
+<html>
+<body>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.First().JobTitle)</th>
+                <th>@Html.DisplayNameFor(model => model.First().JobDescription)</th>
+                <th>@Html.DisplayNameFor(model => model.First().JobLocation)</th>
+                <th>@Html.DisplayNameFor(model => model.First().Department)</th>
+                <th>@Html.DisplayNameFor(model => model.First().PostedDate)</th>
+                <th>@Html.DisplayNameFor(model => model.First().NumberOfVacancy)</th>
+                <th>@Html.DisplayNameFor(model => model.First().InterviewMode)</th>
+                <th>@Html.DisplayNameFor(model => model.First().LastDateToRegister)</th>
+                <th>@Html.DisplayNameFor(model => model.First().JobPosterImage)</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.JobTitle)</td>
+                    <td>@Html.DisplayFor(modelItem => item.JobDescription)</td>
+                    <td>@Html.DisplayFor(modelItem => item.JobLocation)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Department)</td>
+                    <td>@item.PostedDate.ToString("yyyy/MM/dd")</td>
+                    <td>@item.NumberOfVacancy</td>
+                    <td>@item.InterviewMode</td>
+                    <td>@item.LastDateToRegister.ToString("yyyy/MM/dd")</td>
+                    <td>
+                        @if (item.JobPosterImage != null && item.JobPosterImage.Length > 0)
+                        {
+                            var imageBase64 = Convert.ToBase64String(item.JobPosterImage);
+                            <img src="@($"data:image/jpeg;base64,{imageBase64}")" class="img-thumbnail" alt="Job Poster Image" width="50" height="50" />
+                        }
+                        else
+                        {
+                            <span>No Image</span>
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.JobID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.JobID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.JobID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

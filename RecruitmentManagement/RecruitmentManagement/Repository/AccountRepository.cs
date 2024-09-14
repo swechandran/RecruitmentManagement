@@ -1,52 +1,72 @@
 ﻿using RecruitmentManagement.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
+using System.Configuration; 
 using System.Linq;
 using System.Web;
-
 namespace RecruitmentManagement.Repository
 {
     public class AccountRepository
     {
-        private readonly string connectionString = ("data source=DESKTOP-7U2R9CR\\SQLEXPRESS; database=Recrutimentmanagement; integrated security= SSPI;");
-
-
-        public bool UserInsert(UserModel usermodel)
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["RecruitmentManagementDb"].ConnectionString;
+        public bool UserInsert(Registeration registeration)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
-                string query = "INSERT INTO Users (FirstName, LastName, DateOfBirth, Gender, PhoneNumber, EmailAddress, Address, State, City, Username, Password) VALUES (@FirstName, @LastName, @DateOfBirth, @Gender, @PhoneNumber, @EmailAddress, @Address, @State, @City, @Username, @Password)";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlCommand command = new SqlCommand("SPC_User", connection))
                 {
-                    command.Parameters.AddWithValue("@FirstName", usermodel.FirstName);
-                    command.Parameters.AddWithValue("@LastName", usermodel.LastName);
-                    command.Parameters.AddWithValue("@DateOfBirth", usermodel.DateOfBirth);
-                    command.Parameters.AddWithValue("@Gender", usermodel.Gender);
-                    command.Parameters.AddWithValue("@PhoneNumber", usermodel.PhoneNumber);
-                    command.Parameters.AddWithValue("@EmailAddress", usermodel.EmailAddress);
-                    command.Parameters.AddWithValue("@Address", usermodel.Address);
-                    command.Parameters.AddWithValue("@State", usermodel.State);
-                    command.Parameters.AddWithValue("@City", usermodel.City);
-                    command.Parameters.AddWithValue("@Username", usermodel.Username);
-                    command.Parameters.AddWithValue("@Password", usermodel.Password);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@FirstName", registeration.FirstName);
+                    command.Parameters.AddWithValue("@LastName", registeration.LastName);
+                    command.Parameters.AddWithValue("@DateOfBirth", registeration.DateOfBirth);
+                    command.Parameters.AddWithValue("@Gender", registeration.Gender);
+                    command.Parameters.AddWithValue("@PhoneNumber", registeration.PhoneNumber);
+                    command.Parameters.AddWithValue("@EmailAddress", registeration.EmailAddress);
+                    command.Parameters.AddWithValue("@Address", registeration.Address);
+                    command.Parameters.AddWithValue("@State", registeration.State);
+                    command.Parameters.AddWithValue("@City", registeration.City);
+                    command.Parameters.AddWithValue("@Username", registeration.Username);
+                    command.Parameters.AddWithValue("@Password", registeration.Password);
+                    command.Parameters.AddWithValue("@UserType", registeration.UserType);
                     int result = command.ExecuteNonQuery();
-                    if (result >= 0)
+                    return result >= 0;
+                }
+            }
+        }
+        public bool UserUpdate(Registeration registeration)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand("SPU_User", connection))
                     {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@UserID", registeration.UserID);
+                        command.Parameters.AddWithValue("@FirstName", registeration.FirstName);
+                        command.Parameters.AddWithValue("@LastName", registeration.LastName);
+                        command.Parameters.AddWithValue("@DateOfBirth", registeration.DateOfBirth);
+                        command.Parameters.AddWithValue("@Gender", registeration.Gender);
+                        command.Parameters.AddWithValue("@PhoneNumber", registeration.PhoneNumber);
+                        command.Parameters.AddWithValue("@EmailAddress", registeration.EmailAddress);
+                        command.Parameters.AddWithValue("@Address", registeration.Address);
+                        command.Parameters.AddWithValue("@State", registeration.State);
+                        command.Parameters.AddWithValue("@City", registeration.City);
+                        command.Parameters.AddWithValue("@Username", registeration.Username);
+                        command.Parameters.AddWithValue("@Password", registeration.Password);
+                        int result = command.ExecuteNonQuery();
+                        return result >= 0;
                     }
                 }
             }
-
-            return false;
+            catch (Exception)
+            {
+                return false;
+            }
         }
-        
     }
 }

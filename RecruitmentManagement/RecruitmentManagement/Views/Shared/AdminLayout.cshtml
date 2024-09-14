@@ -4,8 +4,74 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    <link href="~/Content/HRProject/signout.css" rel="stylesheet" />
+
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar-nav {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-item {
+            margin-left: 20px;
+        }
+
+            .nav-item a {
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 8px 12px;
+            }
+
+                .nav-item a:hover {
+                    background-color: #575757;
+                    border-radius: 4px;
+                }
+    </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="@Url.Action("Index", "Home")">Claysys</a>
+        </div>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li class="nav-item"><a href="@Url.Action("Index", "Job")">Job Postings</a></li>
+            <li class="nav-item"><a href="@Url.Action("Index", "Candidate")">Candidates Registered</a></li>
+            @*<li class="nav-item"><a href="@Url.Action("ScheduleInterview", "Interview")">Schedule Interview</a></li>*@
+            <li class="nav-item"><a href="@Url.Action("ViewScheduledInterviews", "Interview")">View Scheduled Interview</a></li>
+            <li class="nav-item"><a href="@Url.Action("AdminView", "Admin")">ViewEnquiry </a></li>
+            @*<li class="nav-item"><a href="@Url.Action("Index", "Feedback")">Interview feedback </a></li>*@
+            <a href="@Url.Action("SignOut", "Admin")" class="signout-link">Signout</a>
+        </ul>
+    </nav>
     <div>
         @RenderBody()
     </div>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - HR Management Application</title>
+    <link href="~/Content/HRProject/EntryLayout.css" rel="stylesheet" />
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }
+    </style>
+</head> 
+<body>
+    <header>
+        <nav class="headernav">
+            <div class="container">
+                <a href="#">
+                    <img src="https://cdn.knoji.com/images/logo/claysys.jpg?fit=contain&trim=true&flatten=true&extend=25&width=1200&height=630" alt="Claysys" />
+                    @* <img src="https://www.claysys.com/app/themes/claysys-2019/assets/images/claysys-logo.png" alt="Claysys" />*@
+                </a>
+            </div>
+            <div>
+                <ul class="navlist">
+
+                    @*<li><a href="@Url.Action("Index","Home")">Home</a></li>*@
+
+                    <li>@Html.ActionLink("Home", "EntryPage", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Account")</li>
+                    <li>@Html.ActionLink("Register", "Register", "Account")</li>
+                    <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Account")</li>
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+        
+    
+
+    <div class="bodynav">
+        @RenderBody()
+        @*<img src="https://www.hrmexam.com/wp-content/uploads/2021/11/1.png" alt="Claysys"  />*@
+        <hr />
+        <footer>
+            <div class="footernav">
+                <p>&copy; 2024:Claysys. All rights reserved</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

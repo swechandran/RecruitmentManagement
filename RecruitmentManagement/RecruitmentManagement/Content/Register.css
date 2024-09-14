@@ -1,135 +1,116 @@
 ﻿body {
-    font-family: "Arial", "Helvetica", "Tahoma", "Verdana", sans-serif;
-    background-image: url("https://img.freepik.com/free-vector/blue-curve-background_53876-113112.jpg");
-    background-color: #1c529f, #e0eafc;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-color: #f0f8ff;
+    background-color: #f0f8ff; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.container {
-    margin: 60px auto;
-    padding: 20px;
+.RegisterForm {
     width: 500px;
-    background: linear-gradient(to bottom right, #257bf4,#e0eafc);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    background-color: #e6f7ff;
+    padding: 30px;
+    margin: 50px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-.headerfield {
+h4 {
     text-align: center;
-    margin-bottom: 30px;
-    color: white;
-}
-
-.firstheading {
-    color: white;
-}
-
-.radiofield label {
-    color: white;
-}
-
-.inputfields {
-    position: relative;
+    color: #007acc; 
+    font-size: 24px;
     margin-bottom: 20px;
 }
 
-.gender-options {
-    margin-top: 7px;
+hr {
+    border: 1px solid #007acc; 
+    margin-bottom: 20px;
 }
 
-.inputfields input,
-.inputfields textarea,
-.inputfields select {
-    font-size: 16px;
-    padding: 10px 5px;
-    display: block;
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid white;
-    background: transparent;
-    outline: none;
-    color: white;
-}
-
-.inputfields select {
-    color: rgb(235, 232, 232);
-}
-
-.inputfields label {
-    color: white;
-    font-size: 16px;
-    font-weight: normal;
-    position: absolute;
-    pointer-events: none;
-    left: 5px;
-    top: 10px;
-    transition: 0.2s ease all;
-}
-
-.inputfields input:focus ~ label,
-.inputfields input:not(:placeholder-shown) ~ label,
-.inputfields textarea:focus ~ label,
-.inputfields textarea:not(:placeholder-shown) ~ label,
-.inputfields select:focus ~ label,
-.inputfields select:not([value=""]) ~ label {
-    top: -20px;
-    font-size: 12px;
-    color: white;
-}
-
-.inputfields input:focus,
-.inputfields textarea:focus,
-.inputfields select:focus {
-    border-bottom: 2px solid white;
-}
-
-.gender-options {
+.form-group {
+    margin-bottom: 15px;
     display: flex;
-    justify-content: space-between;
-    color: white;
+    align-items: center;
 }
 
-.buttons {
-    text-align: center;
-    margin-top: 40px;
+.control-label {
+    flex: 1;
+    color: #333;
+    font-weight: bold;
+    padding : 0 10px;
 }
 
-.primarybutton, .secondarybutton {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 30px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 5px;
+.col-md-10 {
+    flex: 3;
 }
 
-    .primarybutton:hover, .secondarybutton:hover {
-        background-color: #0056b3;
-    }
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
 
-    .primarybutton:active, .secondarybutton:active {
-        background-color: #004085;
-    }
-
-    .primarybutton:focus, .secondarybutton:focus {
+    .form-control:focus {
+        border-color: #007acc; /* Focus effect with light blue border */
         outline: none;
     }
 
-.footersection {
-    text-align: center;
-    margin-top: 30px;
-}
-
-    .footersection a {
-        color: rgb(56, 17, 140);
-        text-decoration: underline;
-    }
-
-.error-message {
+.text-danger {
     color: red;
     font-size: 12px;
     margin-top: 5px;
+}
+
+.btn {
+    background-color: #007acc; /* Light blue button */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+    .btn:hover {
+        background-color: #005f99; /* Darker blue on hover */
+    }
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    input[type="submit"]:hover {
+        background-color: #005f99;
+    }
+
+@media (max-width: 600px) {
+    .RegisterForm {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .control-label {
+        font-size: 14px;
+    }
+
+    .form-control {
+        font-size: 12px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
 }

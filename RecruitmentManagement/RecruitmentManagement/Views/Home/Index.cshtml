@@ -1,15 +1,39 @@
-﻿@{
+﻿@*@{
     ViewBag.Title = "Home Page";
+}*@
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Image Example</title>
+    <style>
 
-<main>
+        .responsive-image {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+    <img src="https://www.shutterstock.com/image-photo/admin-word-built-letter-cubes-600nw-1634303020.jpg" alt="Responsive Image" class="responsive-image" />
+</body>
+</html>
+
+<!--<main>
     <section class="row" aria-labelledby="aspnetTitle">
         <h1 id="title">ASP.NET</h1>
         <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
         <p><a href="https://asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
-    </section>
-
-    <div class="row">
+    </section>-->
+@*<div class="row">
         <section class="col-md-4" aria-labelledby="gettingStartedTitle">
             <h2 id="gettingStartedTitle">Getting started</h2>
             <p>
@@ -29,5 +53,5 @@
             <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
             <p><a class="btn btn-outline-dark" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
         </section>
-    </div>
-</main>
+    </div>*@
+<!--</main>-->

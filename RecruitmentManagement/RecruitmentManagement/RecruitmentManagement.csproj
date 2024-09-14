@@ -122,13 +122,31 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CandidateController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InterviewController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\CandidateApplication.cs" />
+    <Compile Include="Models\Enquiry.cs" />
+    <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\JobPosting.cs" />
+    <Compile Include="Models\Registeration.cs" />
+    <Compile Include="Models\ScheduledInterview.cs" />
+    <Compile Include="Models\ScheduleInterview.cs" />
+    <Compile Include="Models\UserFeedback.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AccountRepository.cs" />
+    <Compile Include="Repository\AdminRepository.cs" />
+    <Compile Include="Repository\CandidateRepository.cs" />
+    <Compile Include="Repository\FeedbackRepository.cs" />
+    <Compile Include="Repository\InterviewRepository.cs" />
+    <Compile Include="Repository\JobRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -147,6 +165,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\HRProject\Candidateadminstyle.css" />
+    <Content Include="Content\HRProject\Candidatecreatestyle.css" />
+    <Content Include="Content\HRProject\EntryLayout.css" />
+    <Content Include="Content\HRProject\Login.css" />
+    <Content Include="Content\HRProject\signout.css" />
     <Content Include="Content\Register.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -168,6 +191,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\UserHomeRegister\Login.js" />
+    <Content Include="Scripts\UserHomeRegister\registerform.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -182,8 +207,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Shared\headerfooter.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\GetAllUsers.cshtml" />
     <Content Include="Views\Account\EditUser.cshtml" />
@@ -193,7 +216,33 @@
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Admin\CreateAdmin.cshtml" />
-    <Content Include="Views\Account\UserHomePage.cshtml" />
+    <Content Include="Views\Account\Home.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\EntryLayout.cshtml" />
+    <Content Include="Views\Home\EntryPage.cshtml" />
+    <Content Include="Views\Admin\Dashboard.cshtml" />
+    <Content Include="Views\Admin\Users.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Job\Index.cshtml" />
+    <Content Include="Views\Job\Create.cshtml" />
+    <Content Include="Views\Job\Edit.cshtml" />
+    <Content Include="Views\Job\Delete.cshtml" />
+    <Content Include="Views\Candidate\Index.cshtml" />
+    <Content Include="Views\Candidate\Details.cshtml" />
+    <Content Include="Views\Candidate\Create.cshtml" />
+    <Content Include="Views\Candidate\Edit.cshtml" />
+    <Content Include="Views\Candidate\Delete.cshtml" />
+    <Content Include="Views\Job\Details.cshtml" />
+    <Content Include="Views\Interview\ViewScheduledInterviews.cshtml" />
+    <Content Include="Views\Shared\UserLayout.cshtml" />
+    <Content Include="Views\Account\ViewJobs.cshtml" />
+    <Content Include="Views\User\Create.cshtml" />
+    <Content Include="Views\Admin\AdminView.cshtml" />
+    <Content Include="Views\Interview\ScheduleInterview.cshtml" />
+    <Content Include="Views\Feedback\Index.cshtml" />
+    <Content Include="Views\Feedback\Create.cshtml" />
+    <Content Include="Views\Feedback\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

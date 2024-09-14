@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model IEnumerable<RecruitmentManagement.Models.Registeration>
+
+@{
+    ViewBag.Title = "Registered Users";
+}
+
+<h2>Registered Users</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Phone Number</th>
+            <th>Email Address</th>
+            <th>Address</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Username</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserID</td>
+                <td>@user.FirstName</td>
+                <td>@user.LastName</td>
+                <td>@user.DateOfBirth.ToShortDateString()</td>
+                <td>@user.Gender</td>
+                <td>@user.PhoneNumber</td>
+                <td>@user.EmailAddress</td>
+                <td>@user.Address</td>
+                <td>@user.State</td>
+                <td>@user.City</td>
+                <td>@user.Username</td>
+                <td>
+                    <a href="@Url.Action("Edit", "Admin", new { id = user.UserID })">Edit</a> |
+                    <a href="@Url.Action("Delete", "Admin", new { id = user.UserID })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

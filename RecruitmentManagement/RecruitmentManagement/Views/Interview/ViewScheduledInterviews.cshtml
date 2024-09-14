@@ -1,0 +1,104 @@
+﻿@model IEnumerable<RecruitmentManagement.Models.ScheduledInterview>
+@*@model RecruitmentManagement.Repository.CandidateApplication*@
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<head>
+    <style>
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+            table.table th, table.table td {
+                padding: 10px;
+                border: 1px solid #ddd;
+                text-align: left;
+            }
+
+            table.table thead {
+                background-color: #f4f4f4;
+            }
+
+                table.table thead th {
+                    font-weight: bold;
+                    color: #333;
+                }
+
+            table.table tbody tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            table.table tbody tr:hover {
+                background-color: #e9e9e9;
+            }
+
+        .btn {
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+        }
+
+            .btn-primary:hover {
+                background-color: #0056b3;
+            }
+
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+
+            .btn-secondary:hover {
+                background-color: #5a6268;
+            }
+    </style>
+</head>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Candidate Email</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Interview Feedback</th>
+            <th>View Feedback</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var interview in Model)
+        {
+            <tr>
+                <td>@interview.CandidateEmail</td>
+                <td>@interview.InterviewDate.ToShortDateString()</td>
+                <td>@interview.InterviewTime</td>
+                <td>@interview.InterviewLocation</td>
+                <td>
+                    <!-- Feedback button -->
+                    <a href="@Url.Action("Create", "Feedback", new { applicationId = interview.ApplicationID })" class="btn btn-primary">
+                        Provide Feedback
+                    </a>
+                </td>
+                <td>
+                    <!-- View Feedback button -->
+                    <a href="@Url.Action("Details", "Feedback", new { applicationId = interview.ApplicationID })" class="btn btn-secondary">
+                        View Feedback
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

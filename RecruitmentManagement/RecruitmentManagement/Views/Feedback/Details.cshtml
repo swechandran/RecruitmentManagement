@@ -1,0 +1,62 @@
+﻿@model RecruitmentManagement.Models.UserFeedback
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+<div class="feedback-details">
+    <div class="form-group">
+        <label>Application ID:</label>
+        <label class="form-control-static">@Model.ApplicationID</label>
+    </div>
+
+    @*<div class="form-group">
+        <label>Candidate Name:</label>
+        <label class="form-control-static">@Model.CandidateName</label>
+    </div>
+
+    <div class="form-group">
+        <label>Candidate Email:</label>
+        <label class="form-control-static">@Model.Email</label>
+    </div>*@
+
+    <div class="form-group">
+        <label>Communication:</label>
+        <label class="form-control-static">@Model.Communication</label>
+    </div>
+
+    <div class="form-group">
+        <label>Attitude:</label>
+        <label class="form-control-static">@Model.Attitude</label>
+    </div>
+
+    <div class="form-group">
+        <label>Technical Skills:</label>
+        <label class="form-control-static">@Model.TechnicalSkills</label>
+    </div>
+
+    <div class="form-group">
+        <label>Logical Skills:</label>
+        <label class="form-control-static">@Model.LogicalSkills</label>
+    </div>
+
+    <div class="form-group">
+        <label>Overall:</label>
+        <label class="form-control-static">@Model.Overall</label>
+    </div>
+
+    <div class="form-group">
+        <label>Interview Result:</label>
+        <label class="form-control-static">@Model.InterviewResult</label>
+    </div>
+
+    <div class="form-group">
+        <label>Remarks:</label>
+        <label class="form-control-static">@Model.Remarks</label>
+    </div>
+    
+    @*<p>
+            
+            @Html.ActionLink("Back to List", "Index")
+        </p>*@

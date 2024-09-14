@@ -1,0 +1,101 @@
+﻿@model RecruitmentManagement.Repository.CandidateApplication
+@*@model RecruitmentManagement.Models.Feedback*@
+   
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Create Feedback</h2>
+
+@using (Html.BeginForm("Create","Feedback",FormMethod.Post))
+{
+    <input type="number" value="@Model.ApplicationID" name="ApplicationID"/>
+    <div>
+        <label>Canditate Name</label>
+        <label>@Model.CandidateName</label>
+    </div>
+    <div>
+        <label>Canditate Email</label>
+        <label>@Model.Email</label>
+    </div>
+    <div class="form-group">
+        <label for="Communication">Communication:</label>
+        <select name="Communication">
+            <option>Excellent</option>
+            <option>Very good</option>
+            <option>Good</option>
+            <option>Above average</option>
+            <option>Average</option>
+            <option>Below Average</option>
+        </select>
+       </div>
+
+    <div class="form-group">
+        <label for="Attitude">Attitude:</label>
+        <select name="Attitude">
+            <option>Excellent</option>
+            <option>Very good</option>
+            <option>Good</option>
+            <option>Above average</option>
+            <option>Average</option>
+            <option>Below Average</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="TechnicalSkills">Technical Skills:</label>
+        <select name="TechnicalSkills">
+            <option>Excellent</option>
+            <option>Very good</option>
+            <option>Good</option>
+            <option>Above average</option>
+            <option>Average</option>
+            <option>Below Average</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="LogicalSkills">Logical Skills:</label>
+        <select name="LogicalSkills">
+            <option>Excellent</option>
+            <option>Very good</option>
+            <option>Good</option>
+            <option>Above average</option>
+            <option>Average</option>
+            <option>Below Average</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Overall">Overall:</label>
+        <select name="Overall">
+            <option>Excellent</option>
+            <option>Very good</option>
+            <option>Good</option>
+            <option>Above average</option>
+            <option>Average</option>
+            <option>Below Average</option>
+        </select>
+     </div>
+
+    <div class="form-group">
+        <label for="InterviewResult">Interview Result:</label>
+        <select name="InterviewResult">
+            <option>Selected</option>
+            <option>Rejected</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Remarks">Remarks:</label>
+        <input type="text" id="Remarks" name="Remarks" placeholder="Enter your remarks here">
+     </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+}
+
+<p>
+    @Html.ActionLink("Back to List", "Index", "Feedback", null, new { @class = "btn btn-secondary" })
+</p>
+

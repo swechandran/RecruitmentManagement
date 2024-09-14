@@ -1,18 +1,194 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Contact";
-    Layout = "~/Views/Shared/headerfooter.cshtml";
+    Layout = "~/Views/Shared/EntryLayout.cshtml";
 }
 
-<h2>Contact</h2>
-<div>
-    One Microsoft Way
-    Redmond, WA 98052-6399
-    P: 425.555.0100
-    Support: Support@example.com
-    Marketing: Marketing@example.com
-</div>
-<div>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.3924472048216!2d76.94822407392948!3d11.00915348915412!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859ff537c14fd%3A0x335e73d2c3470cc!2sClaySys%20Technologies!5e0!3m2!1sen!2sin!4v1725378550752!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background: linear-gradient(to bottom right, #dfe9f3, #ffffff);
+    }
+
+    .contact-section {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .contact-container, .enquiry-container {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background: #eaf2f8; 
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s;
+        padding: 20px;
+        text-align: center;
+    }
+
+        .contact-container:hover, .enquiry-container:hover {
+            transform: scale(1.02);
+        }
+
+    .contact-container {
+        flex: 2;
+        max-width: 500px;
+    }
+
+    .enquiry-container {
+        flex: 1;
+        max-width: 400px;
+    }
+
+        h2, .enquiry-container h3 {
+            color: #007bff;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .enquiry-container h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 15px;
+    }
+
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: center;
+        font-size: 14px;
+        color: #555;
+    }
+
+        .contact-item i {
+            font-size: 18px;
+            color: #007bff;
+        }
+
+    .map-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    iframe {
+        width: 100%;
+        height: 200px;
+        border: 0;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+        a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+    .enquiry-form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+        .enquiry-form input, .enquiry-form textarea {
+            padding: 10px;
+            border: 1px solid #007bff;
+            border-radius: 5px;
+            font-size: 14px;
+            width: calc(100% - 24px);
+            background: #ffffff;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+            .enquiry-form input:focus, .enquiry-form textarea:focus {
+                border-color: #0056b3;
+                box-shadow: 0 0 8px rgba(0, 91, 186, 0.3);
+                outline: none;
+            }
+
+        .enquiry-form button {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            width: 100%;
+        }
+
+            .enquiry-form button:hover {
+                background-color: #0056b3;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+</style>
+
+<div class="contact-section">
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <address>
+                    <strong>ClaySys Technologies Pvt. Ltd.</strong><br />
+                    4th Floor, Athulya Building, Infopark Campus, Kakkanad, Kochi, Kerala 682042, India
+                </address>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>Phone: +91 484 241 5511</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>
+                    Support: <a href="mailto:support@claysys.com">support@claysys.com</a><br />
+                    Marketing: <a href="mailto:marketing@claysys.com">marketing@claysys.com</a>
+                </span>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.522527799579!2d76.35306017509693!3d10.015927990646607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7e2951d073b05%3A0xceb7e8282a6853fe!2sClaySys%20Technologies!5e0!3m2!1sen!2sin!4v1725378550752!5m2!1sen!2sin"
+                    loading="lazy"
+                    allowfullscreen=""
+                    referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+
+    <div class="enquiry-container">
+        <h3>Enquire Now</h3>
+        <form class="enquiry-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Enquiry</button>
+        </form>
+    </div>
 </div>
 
+<!-- Use this Font Awesome link for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMlGJCo3am7D8YkeHUVh5O0fB64B+MeZohcmzDj" crossorigin="anonymous">

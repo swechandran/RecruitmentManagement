@@ -1,0 +1,82 @@
+﻿@model List<RecruitmentManagement.Models.Enquiry>
+@{
+    ViewBag.Title = "AdminView";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>AdminView</h2>
+
+<div class="enquiry-container">
+    <h2>Manage Enquiries</h2>
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Enquiry ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Message</th>
+                <th>Enquiry Date</th>
+                @*<th>Actions</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count > 0)
+            {
+                foreach (var enquiry in Model)
+                {
+                    <tr>
+                        <td>@enquiry.EnquiryID</td>
+                        <td>@enquiry.Name</td>
+                        <td>@enquiry.Email</td>
+                        <td>@enquiry.Message</td>
+                        <td>@enquiry.EnquiryDate.ToString("yyyy-MM-dd HH:mm")</td>
+                        @*<td>*@
+                            @*<a href="@Url.Action("Details", "Enquiry", new { id = enquiry.EnquiryID })" class="btn btn-info btn-sm">Details</a>*@
+                            <!-- Uncomment the delete form if you need delete functionality -->
+                            <!--
+                            @using (Html.BeginForm("Delete", "Enquiry", FormMethod.Post))
+                            {
+                                @Html.Hidden("id", enquiry.EnquiryID)
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this enquiry?');">Delete</button>
+                            }
+                            -->
+                        @*</td>*@
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center">No enquiries found.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>
+        @Html.ActionLink("Back to Dashboard", "Index", "Admin", new { area = "" }, new { @class = "btn btn-secondary" })
+    </p>
+</div>
+
+<style>
+    .enquiry-container {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        text-align: center; 
+    }
+
+    .styled-table {
+        width: 80%;
+        margin: 0 auto; 
+        border-collapse: collapse;
+        border: 1px solid #ccc; 
+    }
+
+        .styled-table th, .styled-table td {
+            border: 1px solid #ccc; 
+            padding: 10px;
+            text-align: left; 
+        }
+</style>

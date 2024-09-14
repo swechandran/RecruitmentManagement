@@ -1,28 +1,31 @@
-﻿@model RecruitmentManagement.Models.UserModel
+﻿@model RecruitmentManagement.Models.Registeration
 
 @{
-    ViewBag.Title = "Register";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
-<link href="~/Content/Register.css" rel="stylesheet" />
 
-<h2>Welcome</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="form-horizontal">
+    @Styles.Render("~/Content/Register.css")
+    <script src="~/Scripts/UserHomeRegister.js/registerform.js"></script>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="RegisterForm">
+
         <h4>Register Here!</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-        @*@Html.LabelFor(model => model.UserID, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-        @Html.EditorFor(model => model.UserID, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.UserID, "", new { @class = "text-danger" }) <div class="form-group">
-
-        </div>*@
-   
 
         <div class="form-group">
             @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -43,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DateOfBirth, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.DateOfBirth, new { @class = "form-control", @type = "date" })
                 @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -51,7 +54,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.Gender, new SelectList(new[] { "Male", "Female", "Other" }), "Select Gender", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -83,7 +86,12 @@
         <div class="form-group">
             @Html.LabelFor(model => model.State, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.State, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.State, new SelectList(new[] {
+                        "Select State", "Andhra Pradesh", "Assam", "Bihar", "Delhi", "Goa", "Gujarat",
+                        "Haryana", "Himachal Pradesh", "Karnataka", "Kerala", "Madhya Pradesh",
+                        "Maharashtra", "Odisha", "Punjab", "Rajasthan", "Tamil Nadu", "Telangana",
+                        "Uttar Pradesh", "West Bengal"
+                    }), new { @class = "form-control", id = "state" })
                 @Html.ValidationMessageFor(model => model.State, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -91,10 +99,33 @@
         <div class="form-group">
             @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                <select id="city" name="City" class="form-control">
+                    <option value="">Select City</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Coimbatore">Coimbatore</option>
+                    <option value="Madurai">Madurai</option>
+                    <option value="Tiruchirappalli">Tiruchirappalli</option>
+                    <option value="Salem">Salem</option>
+                    <option value="Tirunelveli">Tirunelveli</option>
+                    <option value="Erode">Erode</option>
+                    <option value="Vellore">Vellore</option>
+                    <option value="Thoothukudi">Thoothukudi</option>
+                    <option value="Nagercoil">Nagercoil</option>
+                    <option value="Thanjavur">Thanjavur</option>
+                    <option value="Dindigul">Dindigul</option>
+                    <option value="Kanchipuram">Kanchipuram</option>
+                    <option value="Karur">Karur</option>
+                    <option value="Nagapattinam">Nagapattinam</option>
+                    <option value="Cuddalore">Cuddalore</option>
+                    <option value="Kumbakonam">Kumbakonam</option>
+                    <option value="Tiruvannamalai">Tiruvannamalai</option>
+                    <option value="Pudukkottai">Pudukkottai</option>
+                    <option value="Hosur">Hosur</option>
+                </select>
                 @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
             </div>
         </div>
+
 
         <div class="form-group">
             @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -107,26 +138,35 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
             </div>
         </div>
+
+        @* Hidden field for UserType *@
+      @*  @Html.HiddenFor(model => model.UserType)*@
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Register" class="btn btn-default" />
+            </div>
+        </div>
+        <div>
+
+            <p align="center">Already have an account? <a href="~/Account/Login">Login</a>
+        </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-    <footer class="footersection">
-        <p>Already have an account? <a href="~/Account/Login">Login</a></p>
-    </footer>
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    }
+        
+</body>
+</html>
