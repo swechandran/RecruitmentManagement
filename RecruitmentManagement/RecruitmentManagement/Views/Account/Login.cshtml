@@ -2,55 +2,74 @@
 
 @{
     ViewBag.Title = "Login";
-    Layout = null;
+    Layout = "~/Views/Shared/layout.cshtml";
 }
-@Styles.Render("~/Content/HRProject/Login.css")
-@Scripts.Render("~/Scripts/UserHomeRegister/Login.js")
+
+@Styles.Render("~/Content/HRProject/Login.css\" rel=\"stylesheet ")
 
 
-
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-<div class="form-horizontal">
-    @*<h4>UserModel</h4>*@
-    <h2> Login here!</h2>
-
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
-            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Login" class="btn btn-default" />
-        </div>
-    </div>
-    <div>
-        @*@Html.ActionLink("Back to List", "Index")*@
-        <p>Don't have an account? <a href="~/Account/Register">Register</a>
-    </div>
-
-</div>
+<style>
+    .form-control {
+        border-radius: 10px; 
+        border: 1px solid #ced4da; 
+        padding: 10px;
+        font-size: 16px;
+        transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        background-color: #f9f9f9; 
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); 
     }
 
+        .form-control:focus {
+            border-color: #007bff; 
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); 
+            background-color: #ffffff; 
+        }
 
-  
-   
+    .text-danger {
+        color: #ff0000;
+    }
+</style>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Login here!</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-12">
+                <a href="@Url.Action("welcome", "Account")">
+                    <input type="submit" value="Login" class="btn btn-default" />
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <p>Don't have an account? <a href="~/Account/Register">Register</a></p>
+            <p><a href="~/Account/About" class="btn btn-primary">Go to Dashboard</a></p> 
+        </div>
+    </div>
+}
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+
+@Scripts.Render("~/Scripts/UserHomeRegister/Login.js")

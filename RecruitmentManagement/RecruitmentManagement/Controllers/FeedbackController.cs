@@ -36,7 +36,7 @@ namespace RecruitmentManagement.Controllers
             if (ModelState.IsValid)
             {
                 feedbackRepository.AddFeedback(feedback);
-                return RedirectToAction("Index");
+                return Redirect("~/Feedback/Details?applicationId=" + feedback.ApplicationID); 
             }
             ViewBag.RatingOptions = new List<string> { "Excellent", "Very Good", "Good", "Above Average", "Average", "Below Average" };
             ViewBag.InterviewResultOptions = new List<string> { "Selected", "Rejected" };
@@ -48,7 +48,8 @@ namespace RecruitmentManagement.Controllers
 
             if (feedback == null)
             {
-                return HttpNotFound();
+                TempData["FeedbackStatus"] = "Feecback still not provided";
+                return Redirect("~/Interview/ViewScheduledInterviews");
             }
 
             return View(feedback);

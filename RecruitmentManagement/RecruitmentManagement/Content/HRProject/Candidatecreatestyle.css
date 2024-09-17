@@ -1,110 +1,143 @@
-﻿body {
-    font-family: "Arial", "Helvetica", "Tahoma", "Verdana", sans-serif;
-    background-image: url("https://img.freepik.com/free-vector/blue-curve-background_53876-113112.jpg");
-    background-color: #1c529f, #e0eafc;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.mainarea{
-    width:50%;
-}
-.container {
-    margin: 60px auto;
+﻿
+/*.mainarea {
+    max-width: 500px; 
+    margin: 0 auto;
     padding: 20px;
-    width: 500px;
-    background: linear-gradient(to bottom right, #257bf4,#e0eafc);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-}
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}*/
 
-.firstheading {
-    color: white;
+/* Form headings */
+/*.headings {
     text-align: center;
-}
+    color: #333;
+    margin-top: 0;
+}*/
 
-.headerfield {
-    text-align: center;
-    margin-bottom: 30px;
-    color: white;
-}
+/* Form group styling */
+/*.form-group {
+    margin-bottom: 1.5rem;
+}*/
 
-.inputfields {
-    position: relative;
-    margin-bottom: 20px;
-}
+/* Label styling */
+/*.control-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+}*/
 
-    .inputfields label {
-        color: white;
-        font-size: 16px;
-        font-weight: normal;
-        position: absolute;
-        pointer-events: none;
-        left: 5px;
-        top: 10px;
-        transition: 0.2s ease all;
-    }
+/* Form control styling */
+/*.form-control {
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}*/
 
-    .inputfields input,
-    .inputfields textarea,
-    .inputfields select {
-        font-size: 16px;
-        padding: 10px 5px;
-        display: block;
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid white;
-        background: transparent;
-        outline: none;
-        color: white;
-    }
+/* File input styling */
+/*input[type="file"] {
+    padding: 6px;
+}*/
 
-        .inputfields input:focus ~ label,
-        .inputfields input:not(:placeholder-shown) ~ label,
-        .inputfields textarea:focus ~ label,
-        .inputfields textarea:not(:placeholder-shown) ~ label,
-        .inputfields select:focus ~ label,
-        .inputfields select:not([value=""]) ~ label {
-            top: -20px;
-            font-size: 12px;
-            color: white;
-        }
-
-        .inputfields input:focus,
-        .inputfields textarea:focus,
-        .inputfields select:focus {
-            border-bottom: 2px solid white;
-        }
-
-.buttons {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.primarybutton {
+/* Submit button styling */
+/*.btn-primary {
     background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
+    border-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
     border: none;
-    border-radius: 30px;
+    border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    margin: 5px;
+    display: block;
+    width: 100%;
+    margin-top: 10px;
 }
 
-    .primarybutton:hover {
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }*/
+
+/* Validation message styling */
+/*.text-danger {
+    color: #dc3545;
+}*/
+
+.createContainer {
+    background-image: url("https://wallpaperaccess.com/full/4893732.jpg");
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+form {
+    width: 440px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2.heading {
+    color: white;
+    text-align: center;
+}
+
+h4.headings {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    margin: 15px 0;
+}
+
+.form-horizontal .form-group {
+    margin-bottom: 15px;
+}
+
+label.control-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: none;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    input[type="submit"]:hover {
         background-color: #0056b3;
     }
 
-    .primarybutton:active {
-        background-color: #004085;
-    }
-
-    .primarybutton:focus {
-        outline: none;
-    }
-
-.error-message {
+.text-danger {
     color: red;
     font-size: 12px;
-    margin-top: 5px;
 }

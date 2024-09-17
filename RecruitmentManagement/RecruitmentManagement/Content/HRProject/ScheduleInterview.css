@@ -1,0 +1,134 @@
+﻿
+.form-container {
+    width: 40%; 
+    margin: 40px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #f0f0f0, #ffffff); 
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    font-family: 'Poppins', sans-serif;
+}
+
+
+h2 {
+    text-align: center;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+}
+
+h4 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #666;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        width: 35%;
+        color: #333;
+        font-weight: bold;
+    }
+    .form-group div{
+        width:60%;
+
+    }
+    .form-group .form-control {
+        width: 100%; 
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+        font-family: 'Poppins', sans-serif;
+    }
+
+
+.interview-fields {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+    .interview-fields label {
+        width: 35%;
+        color: #333;
+        font-weight: bold;
+    }
+
+    .interview-fields input {
+        width: 60%; 
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+
+.form-group .submitBtnBox{
+    width:100% !important;
+    display:flex;
+    justify-content:center;
+}
+.btn {
+    display: block;
+    width: 35%;
+    padding: 12px;
+    background-color: #5cb85c;
+    border: none;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+    .btn:hover {
+        background-color: #4cae4c;
+    }
+
+/* Text for danger/error messages */
+.text-danger {
+    color: #d9534f;
+    font-size: 0.875rem;
+}
+
+
+div a {
+    font-family: 'Poppins', sans-serif;
+    color: #337ab7;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+}
+
+    div a:hover {
+        text-decoration: underline;
+    }
+
+
+@media (max-width: 768px) {
+    .form-container {
+        width: 90%; 
+    }
+
+    .form-group label, .interview-fields label {
+        width: 100%; 
+        text-align: left;
+    }
+
+    .form-group .form-control, .interview-fields input {
+        width: 100%;
+    }
+}

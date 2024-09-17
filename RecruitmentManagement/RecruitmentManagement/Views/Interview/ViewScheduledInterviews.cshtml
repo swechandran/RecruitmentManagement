@@ -1,31 +1,42 @@
 ﻿@model IEnumerable<RecruitmentManagement.Models.ScheduledInterview>
-@*@model RecruitmentManagement.Repository.CandidateApplication*@
 @{
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
-
-
+@if (TempData["FeedbackStatus"] != null) { 
+    <script>alert("@TempData["FeedbackStatus"]")</script>
+}
 <head>
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+
         table.table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
             table.table th, table.table td {
-                padding: 10px;
+                padding: 12px 15px;
                 border: 1px solid #ddd;
                 text-align: left;
             }
 
             table.table thead {
-                background-color: #f4f4f4;
+                background: linear-gradient(90deg, #007bff, #00c6ff);
+                color: white;
             }
 
                 table.table thead th {
                     font-weight: bold;
-                    color: #333;
                 }
 
             table.table tbody tr:nth-child(even) {
@@ -33,7 +44,11 @@
             }
 
             table.table tbody tr:hover {
-                background-color: #e9e9e9;
+                background-color: #f1f1f1;
+            }
+
+            table.table tbody td {
+                color: #555;
             }
 
         .btn {
@@ -45,6 +60,7 @@
             cursor: pointer;
             display: inline-block;
             font-size: 14px;
+            transition: background-color 0.3s ease;
         }
 
         .btn-primary {
@@ -62,43 +78,64 @@
             .btn-secondary:hover {
                 background-color: #5a6268;
             }
+
+        /* Additional button styles for clarity */
+        .btn-primary, .btn-secondary {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Table alignment and container */
+        .table-container {
+            margin: 0 auto;
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Candidate Email</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Location</th>
-            <th>Interview Feedback</th>
-            <th>View Feedback</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var interview in Model)
-        {
-            <tr>
-                <td>@interview.CandidateEmail</td>
-                <td>@interview.InterviewDate.ToShortDateString()</td>
-                <td>@interview.InterviewTime</td>
-                <td>@interview.InterviewLocation</td>
-                <td>
-                    <!-- Feedback button -->
-                    <a href="@Url.Action("Create", "Feedback", new { applicationId = interview.ApplicationID })" class="btn btn-primary">
-                        Provide Feedback
-                    </a>
-                </td>
-                <td>
-                    <!-- View Feedback button -->
-                    <a href="@Url.Action("Details", "Feedback", new { applicationId = interview.ApplicationID })" class="btn btn-secondary">
-                        View Feedback
-                    </a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-
+<body>
+    <h2>Scheduled Interviews</h2>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Candidate Email</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Location</th>
+                    <th>Interview Feedback</th>
+                    <th>View Feedback</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var interview in Model)
+                {
+                    <tr>
+                        <td>@interview.CandidateEmail</td>
+                        <td>@interview.InterviewDate.ToShortDateString()</td>
+                        <td>@interview.InterviewTime</td>
+                        <td>@interview.InterviewLocation</td>
+                        <td>
+                            <!-- Feedback button -->
+                            <a href="@Url.Action("Create", "Feedback", new { applicationId = interview.ApplicationID })" class="btn btn-primary">
+                                Provide Feedback
+                            </a>
+                        </td>
+                        <td>
+                            <!-- View Feedback button -->
+                            <a href="@Url.Action("Details", "Feedback", new { applicationId = interview.ApplicationID })" class="btn btn-secondary">
+                                View Feedback
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>

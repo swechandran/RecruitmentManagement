@@ -4,59 +4,136 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Details</h2>
-<div class="feedback-details">
-    <div class="form-group">
-        <label>Application ID:</label>
-        <label class="form-control-static">@Model.ApplicationID</label>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        .feedback-details {
+            width: 60%;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-top: 20px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+            .btn-secondary:hover {
+                background-color: #5a6268;
+            }
+    </style>
+</head>
+<body>
+
+    <h2>Feedback Details</h2>
+
+    <div class="feedback-details">
+        <table>
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Application ID</td>
+                    <td>@Model.ApplicationID</td>
+                </tr>
+                @*<tr>
+                        <td>Candidate Name</td>
+                        <td>@Model.CandidateName</td>
+                    </tr>
+
+                    <tr>
+                        <td>Candidate Email</td>
+                        <td>@Model.Email</td>
+                    </tr>*@
+                <tr>
+                    <td>Communication</td>
+                    <td>@Model.Communication</td>
+                </tr>
+                <tr>
+                    <td>Attitude</td>
+                    <td>@Model.Attitude</td>
+                </tr>
+                <tr>
+                    <td>Technical Skills</td>
+                    <td>@Model.TechnicalSkills</td>
+                </tr>
+                <tr>
+                    <td>Logical Skills</td>
+                    <td>@Model.LogicalSkills</td>
+                </tr>
+                <tr>
+                    <td>Overall</td>
+                    <td>@Model.Overall</td>
+                </tr>
+                <tr>
+                    <td>Interview Result</td>
+                    <td>@Model.InterviewResult</td>
+                </tr>
+                <tr>
+                    <td>Remarks</td>
+                    <td>@Model.Remarks</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
-    @*<div class="form-group">
-        <label>Candidate Name:</label>
-        <label class="form-control-static">@Model.CandidateName</label>
-    </div>
+    <p>
+        @Html.ActionLink("Back to List", "Index", "Feedback", null, new { @class = "btn btn-secondary" })
+    </p>
 
-    <div class="form-group">
-        <label>Candidate Email:</label>
-        <label class="form-control-static">@Model.Email</label>
-    </div>*@
-
-    <div class="form-group">
-        <label>Communication:</label>
-        <label class="form-control-static">@Model.Communication</label>
-    </div>
-
-    <div class="form-group">
-        <label>Attitude:</label>
-        <label class="form-control-static">@Model.Attitude</label>
-    </div>
-
-    <div class="form-group">
-        <label>Technical Skills:</label>
-        <label class="form-control-static">@Model.TechnicalSkills</label>
-    </div>
-
-    <div class="form-group">
-        <label>Logical Skills:</label>
-        <label class="form-control-static">@Model.LogicalSkills</label>
-    </div>
-
-    <div class="form-group">
-        <label>Overall:</label>
-        <label class="form-control-static">@Model.Overall</label>
-    </div>
-
-    <div class="form-group">
-        <label>Interview Result:</label>
-        <label class="form-control-static">@Model.InterviewResult</label>
-    </div>
-
-    <div class="form-group">
-        <label>Remarks:</label>
-        <label class="form-control-static">@Model.Remarks</label>
-    </div>
-    
-    @*<p>
-            
-            @Html.ActionLink("Back to List", "Index")
-        </p>*@
+</body>
+</html>

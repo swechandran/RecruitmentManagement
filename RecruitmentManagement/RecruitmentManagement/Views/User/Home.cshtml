@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "User Home Page";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #f3f4f7, #e3e6ea);
+        margin: 0;
+        padding: 0;
+    }
+
+    .welcome-container {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 25px;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        background: #ffffff;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        text-align: center;
+        position: relative;
+    }
+
+        .welcome-container:hover {
+            transform: scale(1.02);
+        }
+
+    .logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 120px;
+    }
+
+    h2 {
+        color: #2b6777;
+        border-bottom: 3px solid #ddd;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        font-size: 28px;
+    }
+
+    p {
+        margin-bottom: 20px;
+        color: #555;
+        font-size: 16px;
+        text-align: justify;
+        line-height: 1.6;
+    }
+
+    a {
+        color: #2b6777;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+        a:hover {
+            text-decoration: underline;
+            color: #1c4d57;
+        }
+
+    .department-section {
+        background: #eaf2f8;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .placeholders {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .tech-placeholder {
+        width: 100%;
+        max-width: 200px;
+        height: 80px;
+        background: #f3f4f7;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #555;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+    }
+
+    .department-description {
+        color: #333;
+        font-size: 15px;
+        text-align: center;
+        margin-top: 20px;
+    }
+</style>
+
+<div class="welcome-container">
+    @*<img src="path/to/claysys-logo.png" alt="ClaySys Logo" class="logo">*@
+    <h2>Welcome to ClaySys</h2>
+    <p>
+        ClaySys Technologies is a leading technology company specializing in software development, digital transformation, and business automation solutions. Our expertise spans across various industries, providing innovative tools that drive business efficiency and growth.
+    </p>
+    <p>
+        At ClaySys, we offer a range of services, including custom application development, enterprise solutions, and integration services. Our team of experienced professionals is dedicated to delivering high-quality solutions tailored to meet the unique needs of our clients.
+    </p>
+    <p>
+        Discover how ClaySys can help your organization succeed with our tailored solutions and exceptional support. Thank you for choosing ClaySys as your trusted technology partner. We look forward to working with you and driving your business forward.
+    </p>
+
+    <div class="department-section">
+
+        <div class="placeholders">
+            <div class="tech-placeholder">Cloud Solutions</div>
+            <div class="tech-placeholder">Enterprise Resource Planning (ERP)</div>
+            <div class="tech-placeholder">Customer Relationship Management (CRM)</div>
+            <div class="tech-placeholder">Business Process Automation (BPA)</div>
+            <div class="tech-placeholder">Data Analytics</div>
+            <div class="tech-placeholder">Cybersecurity Solutions</div>
+        </div>
+    </div>
+
+    <div class="department-description">
+        <h3 style="color: #2b6777; font-size: 20px; margin-bottom: 10px;">Our Innovative Solutions</h3>
+        <p>
+            Our flagship product, <strong>ClaySys AppForms</strong>, empowers organizations to build complex business applications with ease, reducing development time and enhancing operational efficiency. Explore our automation services that streamline your business processes and deliver unmatched value to your enterprise.
+        </p>
+    </div>
+</div>

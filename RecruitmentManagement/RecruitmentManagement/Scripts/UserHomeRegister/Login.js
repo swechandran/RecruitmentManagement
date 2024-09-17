@@ -1,13 +1,13 @@
 ﻿$(document).ready(function () {
     // Regular expressions for validation
-    const usernameRegex = /^[a-zA-Z0-9._]{5,20}$/; // Alphanumeric, underscores, 5-20 chars
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/; // One uppercase, one lowercase, one digit, 8-20 chars
+    const usernameRegex = /^[a-zA-Z0-9._]{3,20}$/; // Alphanumeric, underscores, 5-20 chars
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*).{4,20}$/; // One uppercase, one lowercase, one digit, 8-20 chars
 
     // On blur validation for Username
     $("#Username").on("blur", function () {
         const username = $(this).val();
         if (!usernameRegex.test(username)) {
-            $(this).next(".text-danger").text("Invalid Username (5-20 chars, alphanumeric or underscores).");
+            $(this).next(".text-danger").text("Invalid Username (3-20 chars, alphanumeric or underscores).");
         } else {
             $(this).next(".text-danger").text("");
         }
@@ -17,7 +17,7 @@
     $("#Password").on("blur", function () {
         const password = $(this).val();
         if (!passwordRegex.test(password)) {
-            $(this).next(".text-danger").text("Password must be 8-20 chars with at least one digit, one uppercase, and one lowercase letter.");
+            $(this).next(".text-danger").text("Password must be 4-20 chars with at least one digit, one uppercase, and one lowercase letter.");
         } else {
             $(this).next(".text-danger").text("");
         }

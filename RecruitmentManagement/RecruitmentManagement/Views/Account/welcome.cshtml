@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Welcome Dashboard";
+    //Layout = "~/Views/Shared/layout.cshtml";
+    Layout = null;
+    var Username = Session["Username"];
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Welcome"]</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .dashboard-container {
+            background-image: url("https://wallpaperaccess.com/full/4893732.jpg");
+            text-align: center;
+            padding: 220px;
+            max-width: 90%;
+/*            background: #ffffff;*/
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            animation: float 3s ease-in-out infinite;
+        }
+
+            .dashboard-container h1 {
+                font-size: 2.5em;
+                color: white;
+                margin-bottom: 0.5em;
+            }
+
+            .dashboard-container p {
+                font-size: 1.2em;
+                color: white;
+                margin-bottom: 1.5em;
+            }
+
+        .view-jobs-button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            color: #fff;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .view-jobs-button:hover {
+                transform: scale(1.05);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+            }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        @*<img src="https://wallpaperaccess.com/full/4893732.jpg"/>*@
+        <h1>Hi! @Username</h1>
+        <h1>Welcome to Claysys Job Portal</h1>
+        <p>We're excited to see you!</p>
+        <a href="~/Account/ViewJobs" class="view-jobs-button">View Jobs</a>
+    </div>
+</body>
+</html>
+
+

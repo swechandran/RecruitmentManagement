@@ -7,11 +7,59 @@
 
 @{
     ViewBag.Title = "Registered Users";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
 <h2>Registered Users</h2>
 
-<table class="table">
+<style>
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+   
+    a {
+        text-decoration: none;
+        color: #007bff;
+        padding: 5px 10px;
+    }
+
+        a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+
+    
+    h2 {
+        font-family: 'Poppins', sans-serif;
+        color: #333;
+        margin-bottom: 20px;
+    }
+</style>
+
+<table>
     <thead>
         <tr>
             <th>User ID</th>
@@ -44,8 +92,8 @@
                 <td>@user.City</td>
                 <td>@user.Username</td>
                 <td>
-                    <a href="@Url.Action("Edit", "Admin", new { id = user.UserID })">Edit</a> |
-                    <a href="@Url.Action("Delete", "Admin", new { id = user.UserID })">Delete</a>
+                    @*<a href="@Url.Action("Edit", "Admin", new { id = user.UserID })">Edit</a> |*@
+                    <a href="@Url.Action("DeleteConfirmed", "Admin", new { id = user.UserID })">Delete</a>
                 </td>
             </tr>
         }

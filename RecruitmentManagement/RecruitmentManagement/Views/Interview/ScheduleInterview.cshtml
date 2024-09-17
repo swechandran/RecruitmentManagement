@@ -4,13 +4,15 @@
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
+@Styles.Render("~/Content/HRProject/ScheduleInterview.css")
+
 <h2>ScheduleInterview</h2>
 
-@using (Html.BeginForm("ScheduleInterview","Interview", FormMethod.Post))
+@using (Html.BeginForm("ScheduleInterview", "Interview", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
+<div class="form-container">
     <h4>CandidateApplication</h4>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -54,7 +56,7 @@
         </div>
     </div>
 
-    
+
 
     <div class="form-group">
         @Html.LabelFor(model => model.AppliedDate, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -63,18 +65,21 @@
             @Html.ValidationMessageFor(model => model.AppliedDate, "", new { @class = "text-danger" })
         </div>
     </div>
-    <div>
-        <label>Interview Date</label>
-        <input type="date" name="InterviewDate" />
+    <div class="interview-fields">
+        <label for="InterviewDate">Interview Date</label>
+        <input type="date" id="InterviewDate" name="InterviewDate" />
     </div>
-    <div>
-        <label>Interview Location</label>
-        <input type="text" name="InterviewLocation" />
+
+    <div class="interview-fields">
+        <label for="InterviewLocation">Interview Location</label>
+        <input type="text" id="InterviewLocation" name="InterviewLocation" />
     </div>
-    <div>
-        <label>Interview Time</label>
-        <input type="time" name="InterviewTime" />
+
+    <div class="interview-fields">
+        <label for="InterviewTime">Interview Time</label>
+        <input type="time" id="InterviewTime" name="InterviewTime" />
     </div>
+
     @*<div class="form-group">
             @Html.LabelFor(model => model.InterviewDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -100,13 +105,13 @@
         </div>*@
 
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
+        <div class="col-md-offset-2 col-md-10 submitBtnBox">
             <input type="submit" value="Create" class="btn btn-default" />
         </div>
     </div>
 </div>
 }
 
-<div>
+@*<div>
     @Html.ActionLink("Back to List", "Index")
-</div>
+</div>*@

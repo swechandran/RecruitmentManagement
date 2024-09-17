@@ -54,7 +54,7 @@ namespace RecruitmentManagement.Repository
             return jobs;
         }
 
-        // Add a new job posting
+        
         public void AddJob(JobPosting job)
         {
             try
@@ -80,12 +80,12 @@ namespace RecruitmentManagement.Repository
             }
             catch (Exception ex)
             {
-                // Handle exception as needed, e.g., log error
+                
                 throw;
             }
         }
 
-        // Get a specific job posting by ID
+        
         public JobPosting GetJobById(int id)
         {
             JobPosting job = null;
@@ -119,13 +119,13 @@ namespace RecruitmentManagement.Repository
             }
             catch (Exception ex)
             {
-                // Handle exception as needed, e.g., log error
+                
                 throw;
             }
             return job;
         }
 
-        // Update an existing job posting
+        
         public void UpdateJob(JobPosting job)
         {
             try
@@ -158,7 +158,7 @@ namespace RecruitmentManagement.Repository
             }
         }
 
-        // Delete a job posting by ID
+        
         public void DeleteJob(int id)
         {
             try
@@ -176,7 +176,7 @@ namespace RecruitmentManagement.Repository
             }
             catch (Exception ex)
             {
-                // Handle exception as needed, e.g., log error
+                
                 throw;
             }
         }

@@ -38,11 +38,11 @@
                         <td>@Html.TextBoxFor(model => application.CandidateName, new { @class = "form-control", placeholder = "Enter candidate name", @readonly = "readonly" })</td>
                         <td>@Html.TextBoxFor(model => application.Email, new { @class = "form-control", placeholder = "Enter email address", @readonly = "readonly" })</td>
                         <td>@Html.TextBoxFor(model => application.PhoneNumber, new { @class = "form-control", placeholder = "Enter phone number", @readonly = "readonly" })</td>
-                        <td>@Html.TextBoxFor(model => application.AppliedDate, new { @class = "form-control", type = "date", @readonly = "readonly" })</td>
+                        <td>@Html.TextBoxFor(model => application.AppliedDate, new { @class = "form-control", type = "text", @readonly = "readonly" })</td>
                         <td>
                             @if (application.Resume != null && application.Resume.Length > 0)
                             {
-                                <a href="@Url.Action("DownloadResume", "Candidate", new { id = application.ApplicationID })">Download Resume</a>
+                                <a href="@Url.Action("DownloadResume", "Candidate", new { id = application.ApplicationID })" class="btn btn-info">Download Resume</a>
                             }
                             else
                             {

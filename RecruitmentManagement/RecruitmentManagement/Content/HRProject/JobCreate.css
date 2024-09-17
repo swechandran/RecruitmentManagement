@@ -1,0 +1,61 @@
+﻿
+/* Center the form and set its width */
+.form-container {
+    width: 30%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Align h2 title to the center */
+h2 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form control styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 30%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button styles */
+.btn {
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: white;
+    text-align: center;
+    width: 30%;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    border: none;
+    margin-top: 10px;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+    margin-top: 10px;
+}
+
+/* Align buttons */
+.btn-container {
+    text-align: center;
+}
+
+

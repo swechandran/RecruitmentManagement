@@ -54,7 +54,7 @@ namespace RecruitmentManagement.Controllers
             return View(user);
         }
         // POST: Admin/Delete
-        [HttpPost, ActionName("Delete")]
+        /*[HttpPost, ActionName("Delete")]*/
         public ActionResult DeleteConfirmed(int id)
         {
             _userRepository.DeleteUser(id);

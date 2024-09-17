@@ -2,68 +2,175 @@
 
 @{
     ViewBag.Title = "Create Job Posting";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h2>Create Job</h2>
-<small>@TempData["Message"]</small>
-@using (Html.BeginForm("Create", "Job", FormMethod.Post, new {enctype = "multipart/form-data" }))
-{
-    @Html.AntiForgeryToken()
+<style>
+/*    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(to right, #6a11cb, #2575fc); 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }*/
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.JobTitle)
-        @Html.TextBoxFor(model => model.JobTitle, new { @class = "form-control", placeholder = "Enter Job Title" })
-        @Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger" })
-    </div>
+    .job-form-container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+        margin: 20px auto;
+    }
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.JobDescription)
-        @Html.TextAreaFor(model => model.JobDescription, new { @class = "form-control", rows = 4, placeholder = "Enter Job Description" })
-        @Html.ValidationMessageFor(model => model.JobDescription, "", new { @class = "text-danger" })
-    </div>
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.JobLocation)
-        @Html.TextBoxFor(model => model.JobLocation, new { @class = "form-control", placeholder = "Enter Job Location" })
-        @Html.ValidationMessageFor(model => model.JobLocation, "", new { @class = "text-danger" })
-    </div>
+    .form-group {
+        margin-bottom: 15px;
+    }
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Department)
-        @Html.TextBoxFor(model => model.Department, new { @class = "form-control", placeholder = "Enter Department" })
-        @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
-    </div>
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.PostedDate)
-        @Html.TextBoxFor(model => model.PostedDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
-        @Html.ValidationMessageFor(model => model.PostedDate, "", new { @class = "text-danger" })
-    </div>
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+        box-sizing: border-box;
+    }
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.NumberOfVacancy)
-        @Html.TextBoxFor(model => model.NumberOfVacancy, new { @class = "form-control", placeholder = "Enter Number of Vacancies", type = "number" })
-        @Html.ValidationMessageFor(model => model.NumberOfVacancy, "", new { @class = "text-danger" })
-    </div>
+        .form-control:focus {
+            border-color: #2575fc;
+            box-shadow: 0 0 5px rgba(37, 117, 252, 0.5);
+        }
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.InterviewMode)
-        @Html.DropDownListFor(model => model.InterviewMode, new SelectList(new[] { "Online", "Walkin" }), "Select Interview Mode", new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.InterviewMode, "", new { @class = "text-danger" })
-    </div>
+    .text-danger {
+        color: red;
+        font-size: 0.875rem;
+    }
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.LastDateToRegister)
-        @Html.TextBoxFor(model => model.LastDateToRegister, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
-        @Html.ValidationMessageFor(model => model.LastDateToRegister, "", new { @class = "text-danger" })
-    </div>
+    .form-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+    }
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.JobPosterImage)
-        <input type="file" name="jobImage" class="form-control" />
-        @Html.ValidationMessageFor(model => model.JobPosterImage, "", new { @class = "text-danger" })
-    </div>
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
 
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a href="@Url.Action("Index", "Job")" class="btn btn-secondary">Cancel</a>
-}
+    .btn-primary {
+        background-color: #2575fc;
+        color: white;
+    }
+
+        .btn-primary:hover {
+            background-color: #1e63d0;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a636d;
+        }
+
+    input[type="file"] {
+        padding: 5px;
+    }
+
+    small {
+        display: block;
+        margin-bottom: 20px;
+        color: green;
+    }
+</style>
+
+<div class="job-form-container">
+    <h2>Create Job</h2>
+    <small>@TempData["Message"]</small>
+
+    @using (Html.BeginForm("Create", "Job", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JobTitle)
+            @Html.TextBoxFor(model => model.JobTitle, new { @class = "form-control", placeholder = "Enter Job Title" })
+            @Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JobDescription)
+            @Html.TextAreaFor(model => model.JobDescription, new { @class = "form-control", rows = 4, placeholder = "Enter Job Description" })
+            @Html.ValidationMessageFor(model => model.JobDescription, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JobLocation)
+            @Html.TextBoxFor(model => model.JobLocation, new { @class = "form-control", placeholder = "Enter Job Location" })
+            @Html.ValidationMessageFor(model => model.JobLocation, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Department)
+            @Html.TextBoxFor(model => model.Department, new { @class = "form-control", placeholder = "Enter Department" })
+            @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PostedDate)
+            @Html.TextBoxFor(model => model.PostedDate, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(model => model.PostedDate, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumberOfVacancy)
+            @Html.TextBoxFor(model => model.NumberOfVacancy, new { @class = "form-control", placeholder = "Enter Number of Vacancies", type = "number" })
+            @Html.ValidationMessageFor(model => model.NumberOfVacancy, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.InterviewMode)
+            @Html.DropDownListFor(model => model.InterviewMode, new SelectList(new[] { "Online", "Walkin" }), "Select Interview Mode", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.InterviewMode, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastDateToRegister)
+            @Html.TextBoxFor(model => model.LastDateToRegister, "{0:yyyy-MM-dd}", new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(model => model.LastDateToRegister, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JobPosterImage)
+            <input type="file" name="jobImage" class="form-control" />
+            @Html.ValidationMessageFor(model => model.JobPosterImage, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="@Url.Action("Index", "Job")" class="btn btn-secondary">Cancel</a>
+        </div>
+    }
+</div>

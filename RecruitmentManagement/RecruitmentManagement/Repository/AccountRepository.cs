@@ -6,15 +6,19 @@ using System.Data.SqlClient;
 using System.Configuration; 
 using System.Linq;
 using System.Web;
+using RecruitmentManagement.Password_Encryption;
 namespace RecruitmentManagement.Repository
 {
     public class AccountRepository
     {
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["RecruitmentManagementDb"].ConnectionString;
+        
+
         public bool UserInsert(Registeration registeration)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                Password password = new Password();
                 connection.Open();
                 using (SqlCommand command = new SqlCommand("SPC_User", connection))
                 {
@@ -30,12 +34,16 @@ namespace RecruitmentManagement.Repository
                     command.Parameters.AddWithValue("@City", registeration.City);
                     command.Parameters.AddWithValue("@Username", registeration.Username);
                     command.Parameters.AddWithValue("@Password", registeration.Password);
+                    //command.Parameters.AddWithValue("@Password", password.Encode(registeration.Password));
                     command.Parameters.AddWithValue("@UserType", registeration.UserType);
                     int result = command.ExecuteNonQuery();
                     return result >= 0;
                 }
-            }
+                
+            }    
         }
+        
+
         public bool UserUpdate(Registeration registeration)
         {
             try

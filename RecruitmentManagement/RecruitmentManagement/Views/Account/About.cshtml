@@ -1,158 +1,156 @@
 ﻿@{
     ViewBag.Title = "About Us";
-    Layout = "~/Views/Shared/EntryLayout.cshtml";
+    Layout = "~/Views/Shared/layout.cshtml";
 }
 
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #eaf6ff; 
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #eaf6ff;
+    }
+
+    .about-container {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        color: #333;
+    }
+
+    h2 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        font-size: 2em;
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .about-section {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .about-section:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .about-container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #ffffff; 
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            color: #333;
+        .about-section h3 {
+            color: #3498db;
+            margin-bottom: 15px;
+            font-size: 1.5em;
         }
 
-        h2 {
-            text-align: center;
+        .about-section p, .about-section ul {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        .about-section ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+    .about-team {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .team-member {
+        background-color: #ffffff;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .team-member:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .team-member h4 {
+            margin: 10px 0;
             color: #2c3e50;
-            margin-bottom: 20px;
-            font-size: 2em;
         }
 
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .team-member p {
+            color: #7f8c8d;
         }
+</style>
 
-        .about-section {
-            background-color: #ffffff; 
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-            .about-section:hover {
-                transform: scale(1.02); 
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-
-            .about-section h3 {
-                color: #3498db;
-                margin-bottom: 15px;
-                font-size: 1.5em;
-            }
-
-            .about-section p, .about-section ul {
-                color: #7f8c8d;
-                line-height: 1.6;
-            }
-
-            .about-section ul {
-                list-style-type: disc;
-                padding-left: 20px;
-            }
-
-        .about-team {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
-
-        .team-member {
-            background-color: #ffffff; 
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-            .team-member:hover {
-                transform: scale(1.05); 
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-
-            .team-member img {
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-                object-fit: cover;
-                margin-bottom: 10px;
-            }
-
-            .team-member h4 {
-                margin: 10px 0;
-                color: #2c3e50;
-            }
-
-            .team-member p {
-                color: #7f8c8d;
-            }
-
-            
-    </style>
-
-    <div class="about-container">
-        <h2>About Claysys</h2>
-        <div class="about-content">
-            <div class="about-section">
-                <h3>Our Mission</h3>
-                <p>At Claysys, our mission is to deliver innovative solutions that drive progress and efficiency. We are committed to excellence and dedicated to making a positive impact on our clients and the community.</p>
-            </div>
-            <div class="about-section">
-                <h3>Our History</h3>
-                <p>Founded in 2010, Claysys has grown from a small startup to a leading provider of technology solutions. Our journey has been marked by continuous growth, learning, and an unwavering commitment to quality. Over the years, we have achieved numerous milestones and expanded our services globally.</p>
-            </div>
-            <div class="about-section">
-                <h3>Our Values</h3>
-                <ul>
-                    <li>Innovation: Continuously pushing the boundaries to create cutting-edge solutions.</li>
-                    <li>Integrity: Conducting business with honesty and transparency.</li>
-                    <li>Customer Focus: Prioritizing the needs and satisfaction of our clients.</li>
-                    <li>Teamwork: Fostering a collaborative environment to achieve common goals.</li>
-                </ul>
-            </div>
-            <div class="about-section">
-                <h3>Our Team</h3>
-                <div class="about-team">
-                    <div class="team-member">
-                        @*<img src="~/images/team-member1.jpg" alt="Team Member 1">*@
-                        <h4>John Doe</h4>
-                        <p>CEO & Founder</p>
-                        <p>John has over 20 years of experience in the tech industry and leads the company with vision and passion.</p>
-                    </div>
-                    <div class="team-member">
-                        @*<img src="~/images/team-member2.jpg" alt="Team Member 2">*@
-                        <h4>Jane Smith</h4>
-                        <p>Chief Technology Officer</p>
-                        <p>Jane is responsible for overseeing all technological developments and ensuring innovation in our products.</p>
-                    </div>
-                    <div class="team-member">
-                        @*<img src="~/images/team-member3.jpg" alt="Team Member 3">*@
-                        <h4>Emily Johnson</h4>
-                        <p>Head of Marketing</p>
-                        <p>Emily drives our marketing strategy and is instrumental in promoting our brand and services.</p>
-                    </div>
-                    <div class="team-member">
-                        @*<img src="~/images/team-member4.jpg" alt="Team Member 4">*@
-                        <h4>Michael Brown</h4>
-                        <p>Lead Developer</p>
-                        <p>Michael leads our development team and ensures the technical excellence of our solutions.</p>
-                    </div>
+<div class="about-container">
+    <h2>About Claysys</h2>
+    <div class="about-content">
+        <div class="about-section">
+            <h3>Our Mission</h3>
+            <p>At Claysys, our mission is to deliver innovative solutions that drive progress and efficiency. We are committed to excellence and dedicated to making a positive impact on our clients and the community.</p>
+        </div>
+        <div class="about-section">
+            <h3>Our History</h3>
+            <p>Founded in 2010, Claysys has grown from a small startup to a leading provider of technology solutions. Our journey has been marked by continuous growth, learning, and an unwavering commitment to quality. Over the years, we have achieved numerous milestones and expanded our services globally.</p>
+        </div>
+        <div class="about-section">
+            <h3>Our Values</h3>
+            <ul>
+                <li>Innovation: Continuously pushing the boundaries to create cutting-edge solutions.</li>
+                <li>Integrity: Conducting business with honesty and transparency.</li>
+                <li>Customer Focus: Prioritizing the needs and satisfaction of our clients.</li>
+                <li>Teamwork: Fostering a collaborative environment to achieve common goals.</li>
+            </ul>
+        </div>
+        <div class="about-section">
+            <h3>Our Team</h3>
+            <div class="about-team">
+                <div class="team-member">
+                    @*<img src="~/images/team-member1.jpg" alt="Team Member 1">*@
+                    <h4>John Doe</h4>
+                    <p>CEO & Founder</p>
+                    <p>John has over 20 years of experience in the tech industry and leads the company with vision and passion.</p>
+                </div>
+                <div class="team-member">
+                    @*<img src="~/images/team-member2.jpg" alt="Team Member 2">*@
+                    <h4>Jane Smith</h4>
+                    <p>Chief Technology Officer</p>
+                    <p>Jane is responsible for overseeing all technological developments and ensuring innovation in our products.</p>
+                </div>
+                <div class="team-member">
+                    @*<img src="~/images/team-member3.jpg" alt="Team Member 3">*@
+                    <h4>Emily Johnson</h4>
+                    <p>Head of Marketing</p>
+                    <p>Emily drives our marketing strategy and is instrumental in promoting our brand and services.</p>
+                </div>
+                <div class="team-member">
+                    @*<img src="~/images/team-member4.jpg" alt="Team Member 4">*@
+                    <h4>Michael Brown</h4>
+                    <p>Lead Developer</p>
+                    <p>Michael leads our development team and ensures the technical excellence of our solutions.</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
 

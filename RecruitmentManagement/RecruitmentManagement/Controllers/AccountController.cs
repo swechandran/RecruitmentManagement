@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using RecruitmentManagement.Repository;
 using System.Data;
+using RecruitmentManagement.Password_Encryption;
 namespace RecruitmentManagement.Controllers
 {
     public class AccountController : Controller
@@ -23,6 +24,10 @@ namespace RecruitmentManagement.Controllers
         {
             return View();
         }
+        public ActionResult welcome()
+        {
+            return View();
+        }
         [HttpGet]
         public ActionResult Register()
         {
@@ -32,6 +37,7 @@ namespace RecruitmentManagement.Controllers
         public ActionResult Register(Registeration registeration)
         {
             AccountRepository accountRepository = new AccountRepository();
+        
             if (accountRepository.UserInsert(registeration))
             {
                 return RedirectToAction("Login");
@@ -132,20 +138,23 @@ namespace RecruitmentManagement.Controllers
                 string query = "SELECT * FROM Users WHERE Username = @Username AND Password = @Password";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    Password password = new Password();
                     command.Parameters.AddWithValue("@Username", registeration.Username);
                     command.Parameters.AddWithValue("@Password", registeration.Password);
+                    //command.Parameters.AddWithValue("@Password", password.Encode(registeration.Password));
                     SqlDataReader reader = command.ExecuteReader();
                     if (reader.HasRows)
                     {
                         while (reader.Read())
                         {
+                            Session["Username"] = reader["Username"];
                             if ((string)reader["UserType"] == "Admin")
                             {
                                 return Redirect("~/Admin/Index");
                             }
                             else
                             {
-                                return Redirect("~/Account/ViewJobs");
+                                return Redirect("~/Account/welcome");
 
                             }
                         }
@@ -158,6 +167,12 @@ namespace RecruitmentManagement.Controllers
                     }
                 }
             }
+        }
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("Login", "Account");
         }
     }
 }

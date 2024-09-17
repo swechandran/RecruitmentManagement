@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using RecruitmentManagement.Models;
 using RecruitmentManagement.Repository;
 using CandidateApplication = RecruitmentManagement.Repository.CandidateApplication;
+
+
 namespace RecruitmentManagement.Controllers
 {
     public class UserController : Controller
@@ -54,7 +56,8 @@ namespace RecruitmentManagement.Controllers
                     UserRepository userRepository = new UserRepository(); 
                     userRepository.InsertApplication(application);
                     TempData["SuccessMessage"] = "Form submitted successfully!";
-                    return Redirect("~/Account/About");
+                    //return Redirect("~/Account/About");
+                    return View();
                 }
                 catch (Exception ex)
                 {

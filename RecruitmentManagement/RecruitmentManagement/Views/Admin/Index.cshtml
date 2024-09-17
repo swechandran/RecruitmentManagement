@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
@@ -10,24 +9,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Image Example</title>
+    <title>Image Slider Example</title>
     <style>
-
-        .responsive-image {
-            width: 100%;
-            height: auto;
+        .slider {
+            position: relative;
             max-width: 100%;
-            display: block; 
+            margin: auto;
+            overflow: hidden;
         }
 
-    </style>
+        .slides {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
 
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+            .slide img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+    </style>
 </head>
 <body>
-    <img src="https://www.shutterstock.com/image-photo/admin-word-built-letter-cubes-600nw-1634303020.jpg" alt="Responsive Image" class="responsive-image" />
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/GTYSdDW/sleek-welcome-background_wyfvvvz-s_thumbnail-1080_01.png" alt="Image 1">
+            </div>
+            <div class="slide">
+                <img src="https://t3.ftcdn.net/jpg/03/48/55/20/360_F_348552050_uSbrANL65DNj21FbaCeswpM33mat1Wll.jpg" alt="Image 2">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+        let currentIndex = 0;
+
+        function showNextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            const offset = -currentIndex * 100;
+            slides.style.transform = `translateX(${offset}%)`;
+        }
+
+        setInterval(showNextSlide, 5000);
+    </script>
 </body>
 </html>
-
-
-
-

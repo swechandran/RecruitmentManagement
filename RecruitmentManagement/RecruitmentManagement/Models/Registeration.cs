@@ -31,7 +31,7 @@ namespace RecruitmentManagement.Models
         public string Username { get; set; }
         [Display(Name = "Password")]
         public string Password { get; set; }
-        [Display(Name = "ConfirmPassword")]
+        [Display(Name = "Re-Password")]
         public string ConfirmPassword { get; set; }
         [Display(Name = "User Type")]
         public string UserType { get; set; } = "User";

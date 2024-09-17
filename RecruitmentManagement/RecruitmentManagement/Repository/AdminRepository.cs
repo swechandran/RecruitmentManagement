@@ -28,7 +28,7 @@ namespace RecruitmentManagement.Repository
         }
         public IEnumerable<Registeration> GetAllUsers()
         {
-            var users = new List<Registeration>();
+            List<Registeration> users = new List<Registeration>();
 
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -39,7 +39,7 @@ namespace RecruitmentManagement.Repository
                 {
                     while (reader.Read())
                     {
-                        var user = new Registeration
+                        users.Add(new Registeration
                         {
                             UserID = (int)reader["UserID"],
                             FirstName = reader["FirstName"].ToString(),
@@ -52,10 +52,8 @@ namespace RecruitmentManagement.Repository
                             State = reader["State"].ToString(),
                             City = reader["City"].ToString(),
                             Username = reader["Username"].ToString(),
-                            Password = reader["Password"].ToString(),
-                            ConfirmPassword = reader["ConfirmPassword"].ToString()
-                        };
-                        users.Add(user);
+                            Password = reader["Password"].ToString()
+                        });
                     }
                 }
             }
@@ -122,7 +120,7 @@ namespace RecruitmentManagement.Repository
             using (var connection = new SqlConnection(_connectionString))
             {
                 connection.Open();
-                var command = new SqlCommand("DELETE FROM Registerations WHERE UserID = @UserID", connection);
+                var command = new SqlCommand("UPDATE Users set DeleteStatus='Yes' WHERE UserID = @UserID", connection);
                 command.Parameters.AddWithValue("@UserID", id);
                 command.ExecuteNonQuery();
             }

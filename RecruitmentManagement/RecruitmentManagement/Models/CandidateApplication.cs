@@ -20,7 +20,7 @@ namespace RecruitmentManagement.Models
         public DateTime AppliedDate { get; set; } = DateTime.Now;
         public int ApplicationID { get; internal set; }
         public DateTime InterviewDate { get; set; }
-        [Required]
+        
         [DataType(DataType.Time)]
         public string InterviewTime { get; set; }
         [Required]

@@ -1,13 +1,13 @@
 ﻿$(document).ready(function () {
-    // Regular expressions for validation
-    const nameRegex = /^[A-Za-z\s]{2,30}$/; // For FirstName, LastName
-    const phoneRegex = /^\d{10}$/; // For PhoneNumber (10 digits)
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // For EmailAddress
-    const addressRegex = /^[A-Za-z0-9\s,.-]{5,100}$/; // For Address
-    const usernameRegex = /^[a-zA-Z0-9._]{5,20}$/; // For Username (alphanumeric, underscores, 5-20 chars)
-    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/; // For Password (one uppercase, one lowercase, one digit, 8-20 chars)
+    
+    const nameRegex = /^[A-Za-z\s]{2,30}$/; 
+    const phoneRegex = /^\d{10}$/; 
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; 
+    const addressRegex = /^[A-Za-z0-9\s,.-]{5,100}$/; 
+    const usernameRegex = /^[a-zA-Z0-9._]{5,20}$/; 
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/; 
 
-    // On-blur validation for each field
+    // On-blur validation 
     $("#FirstName").blur(function () {
         const firstName = $(this).val();
         if (!nameRegex.test(firstName)) {
@@ -119,13 +119,11 @@
 
     // On form submission
     $("form").submit(function (event) {
-        event.preventDefault(); // Prevent form submission
-        // Trigger blur on all fields to validate before submit
+        
+        
         $("input, select").blur();
-
-        // Check if there are any visible error messages
         if ($(".text-danger:visible").length === 0) {
-            this.submit(); // Submit the form if no errors
+            this.submit(); 
         }
     });
 });

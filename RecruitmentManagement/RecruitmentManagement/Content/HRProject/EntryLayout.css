@@ -1,70 +1,69 @@
-﻿/* HomeLayout.css */
-
-body {
+﻿body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
 .headernav {
-    background-color: white; 
-    color: #fff; 
+    background-color: white;
+    color: #fff;
     border-bottom: 1px solid #a2c2e6;
     padding: 10px 0;
-    display : flex;
+    display: flex;
     justify-content: space-between;
     height: 50px;
     align-items: center;
 }
-.headernav img {
-    height: 50px; 
-    width:150px;
-    
- }
+
+    .headernav img {
+        height: 50px;
+        width: 150px;
+    }
 
 .navlist {
     list-style: none;
     margin: 0;
-    height:100%;
+    height: 100%;
     padding: 0;
     display: flex;
     align-items: center;
 }
 
-.navlist li {
-    margin: 0 15px;
- }
+    .navlist li {
+        margin: 0 15px;
+    }
 
-.navlist a {
+    .navlist a {
         text-decoration: none;
-        color:dodgerblue; 
+        color: dodgerblue;
         font-weight: bold;
     }
 
-.navlist a:hover {
-            
-    text-decoration: underline;
+        .navlist a:hover {
+            text-decoration: underline;
         }
 
 .bodynav {
-    background-color: #f0f8ff; 
+    background-color: #f0f8ff;
 }
 
 hr {
     border: 0;
     height: 1px;
-    background: #a2c2e6; 
+    background: #a2c2e6;
     margin: 20px 0;
 }
 
 footer {
-    background-color: #87CEEB; 
-    padding: 10px 0;
+    background-color: #87CEEB;
+    padding: 40px 0;
     text-align: center;
-    border-top: 1px solid #a2c2e6; 
+    border-top: 1px solid #a2c2e6;
 }
 
 .footernav p {
     margin: 0;
-    color: #4682B4; 
+    color: #4682B4;
 }
+
+
