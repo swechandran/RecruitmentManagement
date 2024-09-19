@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
 using System.Web;
 using RecruitmentManagement.Models;
+using static System.Net.Mime.MediaTypeNames;
 namespace RecruitmentManagement.Repository
 {
     public class CandidateRepository
@@ -184,8 +186,95 @@ namespace RecruitmentManagement.Repository
             string logPath = HttpContext.Current.Server.MapPath("~/App_Data/ErrorLog.txt");
             System.IO.File.AppendAllText(logPath, $"{DateTime.Now}: {ex.Message}\n{ex.StackTrace}\n");
         }
+
+        public SqlConnection connection;
+
+        public void Connection()
+        {
+            String constr = ConfigurationManager.ConnectionStrings["RecruitmentManagementDB"].ToString();
+            connection = new SqlConnection(constr);
+        }
+        public List<ScheduledInterview> AppliedDetails(string Email)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+
+
+
+                    //Connection();
+                    List<ScheduledInterview> list = new List<ScheduledInterview>();
+                    SqlCommand command = new SqlCommand("select * from ScheduledInterviews where CandidateEmail ='karthi@gmail.com'", connection);
+
+                    /*command.CommandType = CommandType.StoredProcedure;*/
+                    command.Parameters.AddWithValue("@CandidateEmail", Email);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        list.Add(new ScheduledInterview
+                        {
+                            Id = (int)reader["Id"],
+                            ApplicationID = (int)reader["ApplicationID"],
+                            JobTitle = (string)reader["Title"],
+                            CandidateEmail = (string)reader["CandidateEmail"],
+                            InterviewDate = (DateTime)reader["DateOfInterview"],
+                            InterviewTime = reader["TimeOfInterview"].ToString(),
+                            InterviewLocation = (string)reader["Location"]
+                        });
+                    }
+                    return list;
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                LogException(ex);
+                throw new Exception("Error deleting application from the database.", ex);
+            }
+        }
+        public List<UserInterviews> TestAppliedDetails(string Email)
+        {
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+
+
+                    List<UserInterviews> scheduleds = new List<UserInterviews>();
+                    //Connection();
+                    SqlCommand command = new SqlCommand("ScheduledInterviewbyEmail", connection);
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Email", Email);
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        scheduleds.Add(new UserInterviews
+                        {
+                            Id = (int)reader["JobID"],
+                            JobTitle = (string)reader["JobTitle"],
+                            InterviewDate = (DateTime)reader["DateOfInterview"],
+                            InterviewTime = reader["TimeOfInterview"].ToString(),
+                            InterviewLocation = (string)reader["Location"]
+                        });                   
+                    }
+                    return scheduleds;
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                LogException(ex);
+                throw new Exception("Error deleting application from the database.", ex);
+            }
+        }
     }
-    public class CandidateApplication
+}
+    
+   /* public class CandidateApplication
     {
         public int ApplicationID { get; set; }
         public int JobID { get; set; }
@@ -195,5 +284,5 @@ namespace RecruitmentManagement.Repository
         public DateTime AppliedDate { get; set; }
         public byte[] Resume { get; set; }
         public string ResumePath { get; internal set; }
-    }
-}
+    }*/
+

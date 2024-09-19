@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -93,7 +94,7 @@
         }
 
         footer {
-            background: linear-gradient(135deg, #87CEEB, #1E90FF); 
+            background: linear-gradient(135deg, #87CEEB, #1E90FF);
             padding: 5px 0;
             text-align: left;
             color: white;
@@ -134,7 +135,7 @@
             }
 
                 .footer-content a:hover {
-                    color: #FFD700; 
+                    color: #FFD700;
                     text-decoration: underline;
                 }
 
@@ -227,6 +228,8 @@
             }
 
             .navlist a {
+                display: inline-block;
+                width: max-content;
                 text-decoration: none;
                 color: black;
                 font-weight: bold;
@@ -251,9 +254,12 @@
             </div>
             <div>
                 <ul class="navlist">
-                    
+
+                    <li>@Html.ActionLink("Applied Details", "AppliedDetails", "User")</li>
+                    <li>@Html.ActionLink("Manage Application", "Edit", "User")</li>
+                    <li>@Html.ActionLink("Edit Profile", "EditUser", "Account")</li>
                     <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
-                    
+
                 </ul>
             </div>
         </nav>

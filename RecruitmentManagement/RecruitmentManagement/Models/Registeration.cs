@@ -13,13 +13,13 @@ namespace RecruitmentManagement.Models
         public string FirstName { get; set; }
         [Display(Name = "Last name")]
         public string LastName { get; set; }
-        [Display(Name = "Date of Birth")]
+        [Display(Name = "Date of birth")]
         public DateTime DateOfBirth { get; set; }
         [Display(Name = "Gender")]
         public string Gender { get; set; }
-        [Display(Name = "Phone Number")]
+        [Display(Name = "Phone number")]
         public string PhoneNumber { get; set; }
-        [Display(Name = "Email Address")]
+        [Display(Name = "Email address")]
         public string EmailAddress { get; set; }
         [Display(Name = "Address")]
         public string Address { get; set; }

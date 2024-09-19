@@ -1,32 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
+
 namespace RecruitmentManagement.Models
 {
     public class CandidateApplication
     {
-        [Required]
+        [DisplayName("Application ID")]
+        public int ApplicationID { get; set; }
+
+        [DisplayName("Job ID")]
         public int JobID { get; set; }
-        [Required]
+
+        [DisplayName("Candidate name")]
         public string CandidateName { get; set; }
-        [Required]
+
+        [DisplayName("Email address")]
         public string Email { get; set; }
-        [Required]
+
+        [DisplayName("Phone number")]
         public string PhoneNumber { get; set; }
-        [Required]
-        public byte[] Resume { get; set; }
+
+        [DisplayName("Date applied")]
         public DateTime AppliedDate { get; set; } = DateTime.Now;
-        public int ApplicationID { get; internal set; }
-        public DateTime InterviewDate { get; set; }
-        
-        [DataType(DataType.Time)]
-        public string InterviewTime { get; set; }
-        [Required]
-        public string InterviewLocation { get; set; }
-        public int FeedbackID { get; set; }
-       
-        
+
+        [DisplayName("Resume")]
+        public byte[] Resume { get; set; }
+
+        [DisplayName("Resume Path")]
+        public string ResumePath { get; internal set; }
     }
 }

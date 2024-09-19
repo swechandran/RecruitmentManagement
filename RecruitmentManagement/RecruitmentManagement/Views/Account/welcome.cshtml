@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Welcome Dashboard";
-    //Layout = "~/Views/Shared/layout.cshtml";
-    Layout = null;
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+    //Layout = null;
     var Username = Session["Username"];
 }
 <!DOCTYPE html>
@@ -16,7 +16,9 @@
             background-image: url("https://wallpaperaccess.com/full/4893732.jpg");
             text-align: center;
             padding: 220px;
-            max-width: 90%;
+/*            max-width: 120%;*/
+            margin-top: 25px;
+            
 /*            background: #ffffff;*/
             border-radius: 12px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);

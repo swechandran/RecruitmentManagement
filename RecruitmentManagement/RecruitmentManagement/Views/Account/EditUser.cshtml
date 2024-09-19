@@ -1,15 +1,98 @@
-﻿@model RecruitmentManagement.Models.UserModel
+﻿@model RecruitmentManagement.Models.Registeration
 
 @{
     ViewBag.Title = "Edit User";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+@if (TempData["UpdateStatus"] != null)
+{
+    <script>alert("@TempData["UpdateStatus"]")</script>
 }
 
-<h2>Edit User</h2>
+<style>
+    .form-group {
+        margin-bottom: 20px;
+    }
 
-@using (Html.BeginForm("UpdateUser", "Account", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
-       
+    label {
+        font-weight: bold;
+        color: #333;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+        }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 15px;
+        font-size: 1.1em;
+        color: white;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+        padding: 10px 15px;
+        font-size: 1.1em;
+        color: white;
+        border-radius: 5px;
+    }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+    h2 {
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .validation-error {
+        color: red;
+        font-size: 0.9em;
+    }
+    .edituser-container form{
+        width:400px;
+        background-color:white;
+        padding:20px;
+        
+
+    }
+    .edituser-container{
+        width:98vw;
+        display:flex;
+        justify-content:center;
+        padding-top:30px;
+
+    }
+</style>
+<div class="edituser-container">
+    @*<h2>Edit User</h2>*@
+
+    @using (Html.BeginForm("UpdateUser", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
 
         <div class="form-group">
             @Html.LabelFor(m => m.FirstName)
@@ -71,15 +154,17 @@
             @Html.ValidationMessageFor(m => m.Username)
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.Password)
-            @Html.EditorFor(m => m.Password, new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Password)
-        </div>
+        @*<div class="form-group">
+                @Html.LabelFor(m => m.Password)
+                @Html.EditorFor(m => m.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>*@
         @Html.HiddenFor(m => m.UserID)
+        @Html.HiddenFor(m => m.Password)
 
         <button type="submit" class="btn btn-primary">Save Changes</button>
         <a href="@Url.Action("GetAllUsers", "Account")" class="btn btn-secondary">Cancel</a>
 
 
-        }
+    }
+</div>

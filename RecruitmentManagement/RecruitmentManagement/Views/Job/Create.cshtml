@@ -109,8 +109,13 @@
 <div class="job-form-container">
     <h2>Create Job</h2>
     <small>@TempData["Message"]</small>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
 
-    @using (Html.BeginForm("Create", "Job", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+
+    @using (Html.BeginForm("Create", "Job", FormMethod.Post, new { enctype = "multipart/form-data", id = "jobForm" }))
     {
         @Html.AntiForgeryToken()
 
@@ -173,4 +178,85 @@
             <a href="@Url.Action("Index", "Job")" class="btn btn-secondary">Cancel</a>
         </div>
     }
-</div>
+
+    <script>
+        $(document).ready(function () {
+            $.validator.addMethod("regex", function (value, element, regexpr) {
+                return this.optional(element) || regexpr.test(value);
+            }, "Invalid format.");
+
+            $("#jobForm").validate({
+                rules: {
+                    JobTitle: {
+                        required: true,
+                        minlength: 3
+                    },
+                    JobDescription: {
+                        required: true,
+                        minlength: 10
+                    },
+                    JobLocation: {
+                        required: true,
+                        regex: /^[a-zA-Z\s]+$/  // Only letters and spaces
+                    },
+                    Department: {
+                        required: true,
+                        regex: /^[a-zA-Z\s]+$/  // Only letters and spaces
+                    },
+                    PostedDate: {
+                        required: true,
+                        dateISO: true
+                    },
+                    NumberOfVacancy: {
+                        required: true,
+                        number: true,
+                        min: 1
+                    },
+                    InterviewMode: {
+                        required: true
+                    },
+                    LastDateToRegister: {
+                        required: true,
+                        dateISO: true
+                    }
+                },
+                messages: {
+                    JobTitle: {
+                        minlength: "Job Title must be at least 3 characters long."
+                    },
+                    JobDescription: {
+                        minlength: "Job Description must be at least 10 characters long."
+                    },
+                    JobLocation: {
+                        regex: "Job Location must contain only letters and spaces."
+                    },
+                    Department: {
+                        regex: "Department must contain only letters and spaces."
+                    },
+                    PostedDate: {
+                        dateISO: "Please enter a valid date (yyyy-mm-dd)."
+                    },
+                    NumberOfVacancy: {
+                        number: "Please enter a valid number.",
+                        min: "Number of Vacancies must be at least 1."
+                    },
+                    LastDateToRegister: {
+                        dateISO: "Please enter a valid date (yyyy-mm-dd)."
+                    }
+                },
+                errorClass: "text-danger",
+                highlight: function (element) {
+                    $(element).addClass("is-invalid");
+                },
+                unhighlight: function (element) {
+                    $(element).removeClass("is-invalid");
+                },
+                onkeyup: false,  
+                onfocusout: function (element) {
+                    $(element).valid(); 
+                }
+            });
+        });
+    </script>
+
+

@@ -139,6 +139,7 @@
     <Compile Include="Models\ScheduledInterview.cs" />
     <Compile Include="Models\ScheduleInterview.cs" />
     <Compile Include="Models\UserFeedback.cs" />
+    <Compile Include="Models\UserInterviews.cs" />
     <Compile Include="Password Encryption\Password.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AccountRepository.cs" />
@@ -252,10 +253,12 @@
     <Content Include="Views\User\Home.cshtml" />
     <Content Include="Views\Account\welcome.cshtml" />
     <Content Include="Views\Shared\layout.cshtml" />
+    <Content Include="Views\User\AppliedDetails.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\EditUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Logs\" />
     <Folder Include="Views\Shared\images\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,17 +1,16 @@
-﻿ using RecruitmentManagement.Models;
+﻿using RecruitmentManagement.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Net;
-using System.Reflection;
-using System.Web;
 using System.Web.Mvc;
 using RecruitmentManagement.Repository;
 using System.Data;
 using RecruitmentManagement.Password_Encryption;
+using System.Web;
+
 namespace RecruitmentManagement.Controllers
 {
+    
     public class AccountController : Controller
     {
         public ActionResult ViewJobs()
@@ -58,22 +57,14 @@ namespace RecruitmentManagement.Controllers
         }      
         // UPDATE
         [HttpGet]
-        public ActionResult EditUser(Registeration registeration)
+        public ActionResult EditUser()
         {
-            if (registeration.UserID <= 0) 
-            {
-                return HttpNotFound(); 
-            }
+            Registeration registeration = new Registeration();
+            registeration.UserID = (int)Session["UserId"];
             AccountRepository accountRepository = new AccountRepository();
-            if (accountRepository.UserUpdate(registeration))
-            {
-                return RedirectToAction("Login");
-            }
-            else
-            {
-                ViewBag.Message = "Something Error,try again";
-                return View();
-            }
+
+            var list = accountRepository.GetUserbyId(registeration);
+            return View(list);
         }  
         [HttpPost]
         public ActionResult UpdateUser(Registeration registeration)
@@ -85,11 +76,13 @@ namespace RecruitmentManagement.Controllers
             AccountRepository accountRepository = new AccountRepository();
             if (accountRepository.UserUpdate(registeration))
             {
-                return View();
+                TempData["UpdateStatus"] = "Updated successfully";
+                 return RedirectToAction("EditUser", "Account", new {UserID=registeration.UserID});
             }
             else
             {
-                return View();
+                TempData["UpdateStatus"] = "Error try again";
+                return RedirectToAction("EditUser", "Account", new {UserID=registeration.UserID});
             }         
             return RedirectToAction("GetAllUsers");
         }
@@ -148,6 +141,13 @@ namespace RecruitmentManagement.Controllers
                         while (reader.Read())
                         {
                             Session["Username"] = reader["Username"];
+                            Session["Email"] = reader["EmailAddress"];
+                            Session["UserId"] = reader["UserID"];
+                            //FormsAuthentication.SetAuthCookie((string)reader["Username"], false);
+                            //if (!Roles.IsUserInRole((string)reader["Username"], (string)reader["UserType"]))
+                            //{
+                            //    Roles.AddUserToRole((string)reader["Username"], (string)reader["UserType"]);
+                            //}
                             if ((string)reader["UserType"] == "Admin")
                             {
                                 return Redirect("~/Admin/Index");
@@ -172,7 +172,39 @@ namespace RecruitmentManagement.Controllers
         {
             Session.Clear();
             Session.Abandon();
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(-1));
+            Response.Cache.SetNoStore();
             return RedirectToAction("Login", "Account");
+        }
+
+        public ActionResult GetUserByEmail(string email)
+        {
+            string Email = null;
+            string connectionString = ("data source=DESKTOP-7U2R9CR\\SQLEXPRESS; database=Recrutimentmanagement; integrated security= SSPI;");
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT * FROM Users WHERE EmailAddress = @Email";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", email);
+                    //command.Parameters.AddWithValue("@Password", password.Encode(registeration.Password));
+                    SqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {                           
+                            Email = reader["EmailAddress"].ToString();                           
+                        }
+                        return Content(Email);
+                    }
+                    else
+                    {
+                        return Content(Email);
+                    }
+                }
+            }
         }
     }
 }

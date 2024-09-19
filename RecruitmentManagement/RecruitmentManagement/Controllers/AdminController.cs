@@ -5,8 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 namespace RecruitmentManagement.Controllers
 {
+   
     public class AdminController : Controller
     {
         // GET: Admin
@@ -89,7 +91,9 @@ namespace RecruitmentManagement.Controllers
         {
             Session.Clear();
             Session.Abandon();
-            return RedirectToAction("Login", "Account"); 
+            return RedirectToAction("Login", "Account");
+            //FormsAuthentication.SignOut();
         }
+
     }
 }

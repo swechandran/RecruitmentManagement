@@ -5,262 +5,17 @@
     {
       "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|c:\\users\\hp\\desktop\\hr-project\\recruitmentmanagement\\recruitmentmanagement\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|c:\\users\\hp\\desktop\\hr-project\\recruitmentmanagement\\recruitmentmanagement\\views\\account\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\views\\account\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\recruitmentmanagement\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|c:\\users\\hp\\desktop\\hr-project\\recruitmentmanagement\\recruitmentmanagement\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|c:\\users\\hp\\desktop\\hr-project\\recruitmentmanagement\\recruitmentmanagement\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|c:\\users\\hp\\desktop\\hr-project\\recruitmentmanagement\\recruitmentmanagement\\views\\account\\userhomepage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\views\\account\\userhomepage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\recruitmentmanagement\\views\\account\\deleteuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\views\\account\\deleteuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|c:\\users\\hp\\desktop\\hr-project\\recruitmentmanagement\\recruitmentmanagement\\views\\admin\\createadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\views\\admin\\createadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\recruitmentmanagement\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\recruitmentmanagement\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\models\\usermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|c:\\users\\hp\\desktop\\hr-project\\recruitmentmanagement\\recruitmentmanagement\\views\\shared\\adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\views\\shared\\adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\recruitmentmanagement\\views\\account\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\views\\account\\edituser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|c:\\users\\hp\\desktop\\hr-project\\recruitmentmanagement\\recruitmentmanagement\\views\\shared\\headerfooter.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\views\\shared\\headerfooter.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|c:\\users\\hp\\desktop\\hr-project\\recruitmentmanagement\\recruitmentmanagement\\views\\account\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\views\\account\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|c:\\users\\hp\\desktop\\hr-project\\recruitmentmanagement\\recruitmentmanagement\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\repository\\accountrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\recruitmentmanagement\\content\\register.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{D20265BE-2001-4CBC-8C34-8A1F9EF9FAB4}|RecruitmentManagement\\RecruitmentManagement.csproj|solutionrelative:recruitmentmanagement\\content\\register.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 159,
+      "VerticalTabListWidth": 202,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserHomePage.cshtml",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\UserHomePage.cshtml",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Views\\Account\\UserHomePage.cshtml",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\UserHomePage.cshtml",
-              "RelativeToolTip": "RecruitmentManagement\\Views\\Account\\UserHomePage.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-03T15:11:24.458Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CreateAdmin.cshtml",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Admin\\CreateAdmin.cshtml",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Views\\Admin\\CreateAdmin.cshtml",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Admin\\CreateAdmin.cshtml",
-              "RelativeToolTip": "RecruitmentManagement\\Views\\Admin\\CreateAdmin.cshtml",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAAAH0AAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-03T14:36:57.589Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Admin\\Index.cshtml",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Views\\Admin\\Index.cshtml",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Admin\\Index.cshtml",
-              "RelativeToolTip": "RecruitmentManagement\\Views\\Admin\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-03T14:17:32.491Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AdminLayout.cshtml",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Shared\\AdminLayout.cshtml",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Views\\Shared\\AdminLayout.cshtml",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Shared\\AdminLayout.cshtml",
-              "RelativeToolTip": "RecruitmentManagement\\Views\\Shared\\AdminLayout.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-03T14:16:48.534Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AdminController.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Controllers\\AdminController.cs",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Controllers\\AdminController.cs",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Controllers\\AdminController.cs",
-              "RelativeToolTip": "RecruitmentManagement\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T14:06:45.917Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Contact.cshtml",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\Contact.cshtml",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Views\\Account\\Contact.cshtml",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\Contact.cshtml",
-              "RelativeToolTip": "RecruitmentManagement\\Views\\Account\\Contact.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABOAQAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-03T13:47:18.409Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "About.cshtml",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\About.cshtml",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Views\\Account\\About.cshtml",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\About.cshtml",
-              "RelativeToolTip": "RecruitmentManagement\\Views\\Account\\About.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-03T13:34:42.937Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "headerfooter.cshtml",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Shared\\headerfooter.cshtml",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Views\\Shared\\headerfooter.cshtml",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Shared\\headerfooter.cshtml",
-              "RelativeToolTip": "RecruitmentManagement\\Views\\Shared\\headerfooter.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-03T13:30:38.163Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "AccountRepository.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Repository\\AccountRepository.cs",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Repository\\AccountRepository.cs",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Repository\\AccountRepository.cs",
-              "RelativeToolTip": "RecruitmentManagement\\Repository\\AccountRepository.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAgwDAAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-03T11:45:33.686Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DeleteUser.cshtml",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\DeleteUser.cshtml",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Views\\Account\\DeleteUser.cshtml",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\DeleteUser.cshtml",
-              "RelativeToolTip": "RecruitmentManagement\\Views\\Account\\DeleteUser.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-03T05:07:35.76Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "EditUser.cshtml",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\EditUser.cshtml",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Views\\Account\\EditUser.cshtml",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\EditUser.cshtml",
-              "RelativeToolTip": "RecruitmentManagement\\Views\\Account\\EditUser.cshtml",
-              "ViewState": "AgIAACwAAAAAAAAAAAAAAEsAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-03T04:21:18.964Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "RecruitmentManagement\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAUAAABoZmZmZiYgwC4AAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-02T12:30:43.869Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "RecruitmentManagement\\Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAYwIQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-02T12:18:23.153Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "Register.css",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Content\\Register.css",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Content\\Register.css",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Content\\Register.css",
-              "RelativeToolTip": "RecruitmentManagement\\Content\\Register.css",
-              "ViewState": "AgIAAGQAAAAAAAAAAAAkwIYAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-09-02T11:36:39.32Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -269,23 +24,15 @@
               "RelativeDocumentMoniker": "RecruitmentManagement\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Controllers\\AccountController.cs",
               "RelativeToolTip": "RecruitmentManagement\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAMwAAAAAAAAAAIAZwN8AAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAALAAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T10:20:10.764Z",
+              "WhenOpened": "2024-09-19T05:45:59.867Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "UserModel.cs",
-              "DocumentMoniker": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Models\\UserModel.cs",
-              "RelativeDocumentMoniker": "RecruitmentManagement\\Models\\UserModel.cs",
-              "ToolTip": "C:\\Users\\HP\\Desktop\\HR-Project\\RecruitmentManagement\\RecruitmentManagement\\Models\\UserModel.cs",
-              "RelativeToolTip": "RecruitmentManagement\\Models\\UserModel.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBgAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-02T10:16:48.569Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             }
           ]
         },

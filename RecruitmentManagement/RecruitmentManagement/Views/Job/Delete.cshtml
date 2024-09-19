@@ -140,9 +140,11 @@
 
             <dt>@Html.DisplayNameFor(model => model.JobPosterImage)</dt>
             <dd>
-                @if (Model.JobPosterImage != null)
+                @if (Model.JobPosterImage != null && Model.JobPosterImage.Length > 0)
                 {
-                    <img src="@Url.Content("~/uploads/" + Model.JobPosterImage)" alt="Job Poster Image" style="max-width: 200px;" />
+                    string base64String = Convert.ToBase64String(Model.JobPosterImage);
+                    string imageDataUrl = $"data:image/jpeg;base64,{base64String}";
+                    <img src="@imageDataUrl" alt="Job Poster Image" style="max-width: 100px;" />
                 }
                 else
                 {
